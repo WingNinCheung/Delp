@@ -1,6 +1,6 @@
 # Delp
 
-Delp is a single page app which publishes restaurants located in San Francisco Bay Area with. Users are able to interact with Delp for finding their desired restaurants and writing reviews and ratings on a specific restaurant.
+Delp is a single page app which publishes restaurants located in San Francisco Bay Area. Users are able to interact with Delp for finding their desired restaurants and writing reviews and ratings on a specific restaurant.
 
 ## Links
 
