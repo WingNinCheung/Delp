@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import DemoSignPage from "./components/DemoLogin";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,8 +18,11 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/demo">
+            <DemoSignPage />
           </Route>
         </Switch>
       )}
