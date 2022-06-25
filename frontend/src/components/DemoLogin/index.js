@@ -9,11 +9,10 @@ export default function DemoLogin() {
   console.log("session: ", sessionUser);
 
   if (sessionUser) {
-    history.push("/");
+    history.push("/home");
   } else {
     dispatch(
       sessionActions.login({ credential: "Demo-lition", password: "password" })
     );
   }
 }
-// test
