@@ -8,6 +8,7 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 - <a href="https://github.com/WingNinCheung/Delp/wiki/Database-Schema"> Database Schema
 - <a href="https://github.com/WingNinCheung/Delp/wiki/Feature-List"> Feature List
 - <a href="https://github.com/WingNinCheung/Delp/wiki/State-Shape"> Redux State Shape
+- <a href="https://github.com/WingNinCheung/Delp/wiki/API-Routes"> API Routes
 
 ## Technologies
   
