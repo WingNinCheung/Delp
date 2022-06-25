@@ -5,6 +5,9 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import DemoSignPage from "./components/DemoLogin";
+import { Home } from "./components/HomePage";
+import { Slash } from "./components/SlashPage";
+import { BusinessDetail } from "./components/BusinessDatailPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +29,17 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Switch>
+        <Route exact path="/">
+          <Slash />
+        </Route>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <Route exact path="/business/:id">
+          <BusinessDetail />
+        </Route>
+      </Switch>
     </>
   );
 }
