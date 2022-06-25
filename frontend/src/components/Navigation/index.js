@@ -26,9 +26,16 @@ function Navigation({ isLoaded }) {
   return (
     <ul>
       <li>
-        <NavLink exact to="/">
-          Home
-        </NavLink>
+        {sessionUser ? (
+          <NavLink exact to="/home">
+            Home
+          </NavLink>
+        ) : (
+          <NavLink exact to="/">
+            Home
+          </NavLink>
+        )}
+
         {isLoaded && sessionLinks}
       </li>
     </ul>
