@@ -38,8 +38,8 @@ export const BusinessDetail = () => {
           </div>
           <div className="address">
             <h3>Address</h3>
-            {thisBusiness.address}, {thisBusiness.city}, {thisBusiness.state},
-            {thisBusiness.ZipCode}
+            {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
+            {thisBusiness.zipCode}
           </div>
         </div>
         <div className="review">
