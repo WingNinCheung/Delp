@@ -15,6 +15,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94115,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 3,
@@ -26,6 +28,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94118,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 4,
@@ -37,6 +41,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94103,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 5,
@@ -48,6 +54,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94115,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 6,
@@ -59,6 +67,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94112,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 7,
@@ -70,6 +80,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94123,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 8,
@@ -81,6 +93,8 @@ module.exports = {
           city: "Oakland",
           state: "California",
           zipCode: 94607,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 9,
@@ -92,6 +106,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94087,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 10,
@@ -103,6 +119,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94118,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 3,
@@ -114,6 +132,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94116,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
         {
           ownerId: 7,
@@ -125,6 +145,8 @@ module.exports = {
           city: "San Francisco",
           state: "California",
           zipCode: 94114,
+          createdAt: new Date(),
+          updatedAt: new Date(),
         },
       ],
       {}
