@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import DemoSignPage from "./components/DemoLogin";
 import { Home } from "./components/HomePage";
+import { Slash } from "./components/SlashPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
         </Switch>
       )}
       <Switch>
+        <Route exact path="/">
+          <Slash />
+        </Route>
         <Route exact path="/home">
           <Home />
         </Route>
