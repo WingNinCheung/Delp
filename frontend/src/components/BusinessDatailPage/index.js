@@ -1,12 +1,14 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import EditBusiness from "../EditBusinessPage";
+// import { useState } from "react";
+// import EditBusiness from "../EditBusinessPage";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
   let thisBusiness;
   const history = useHistory();
+
+  const loggedUserId = useSelector((state) => state.session.user.id);
 
   const allBusiness = useSelector((state) => state.business);
   for (const business in allBusiness) {
@@ -14,6 +16,10 @@ export const BusinessDetail = () => {
       thisBusiness = allBusiness[business];
     }
   }
+
+  console.log("logged in ID ", loggedUserId);
+  const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
+  console.log(isAuthorizedOwner);
 
   const handleEdit = (e) => {
     history.push(`/business/${thisBusiness.id}/edit`);
@@ -40,7 +46,9 @@ export const BusinessDetail = () => {
         <div className="info-detail">
           <h2>Info</h2>
           <div className="edit-button">
-            <button onClick={handleEdit}>Edit Info</button>
+            {isAuthorizedOwner ? (
+              <button onClick={handleEdit}>Edit Info</button>
+            ) : null}
           </div>
           <div className="description">
             <h3>Description</h3>
