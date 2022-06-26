@@ -42,8 +42,8 @@ export const addBusiness = (business) => async (dispatch) => {
   }
 };
 
-export const updateBusiness = (data) => async (dispatch) => {
-  const res = await csrfFetch(`/api/business/${data.id}`, {
+export const updateBusiness = (data, id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/business/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -51,6 +51,7 @@ export const updateBusiness = (data) => async (dispatch) => {
 
   if (res.ok) {
     const business = await res.json();
+
     dispatch(addOneBusiness(business));
     return business;
   }

@@ -33,7 +33,8 @@ router.post(
 router.put(
   "/:id",
   asyncHandler(async (req, res) => {
-    const business = ({
+    const {
+      id,
       ownerId,
       title,
       imageUrl,
@@ -42,8 +43,24 @@ router.put(
       city,
       state,
       zipCode,
-    } = await Business.update(req.body));
-    return res.json(business);
+    } = req.body;
+
+    await Business.update(
+      {
+        ownerId,
+        title,
+        imageUrl,
+        description,
+        address,
+        city,
+        state,
+        zipCode,
+      },
+      {
+        where: { id },
+      }
+    );
+    return res.json(id);
   })
 );
 

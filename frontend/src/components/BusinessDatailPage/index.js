@@ -1,7 +1,5 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import { useState } from "react";
-// import EditBusiness from "../EditBusinessPage";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
@@ -11,12 +9,12 @@ export const BusinessDetail = () => {
   const loggedUserId = useSelector((state) => state.session.user.id);
 
   const allBusiness = useSelector((state) => state.business);
+
   for (const business in allBusiness) {
     if (id === business) {
       thisBusiness = allBusiness[business];
     }
   }
-
   const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
 
   const handleEdit = (e) => {

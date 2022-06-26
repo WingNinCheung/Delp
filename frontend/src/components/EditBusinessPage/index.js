@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addBusiness } from "../../store/business";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { updateBusiness } from "../../store/business";
 
 export const EditBusiness = () => {
   const dispatch = useDispatch();
@@ -21,13 +21,15 @@ export const EditBusiness = () => {
 
   const handleCancel = (e) => {
     e.preventDefault();
-    history.push("/home");
+    history.push(`/business/${id}`);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
-      ownerId: id,
+      ...thisBusiness,
+      ownerId: thisBusiness.ownerId,
       title,
       imageUrl,
       description,
@@ -37,11 +39,10 @@ export const EditBusiness = () => {
       zipCode,
     };
 
-    const createdBusiness = await dispatch(addBusiness(payload));
+    const createdBusiness = await dispatch(updateBusiness(payload, id));
 
-    console.log(createdBusiness);
     if (createdBusiness) {
-      history.push(`/business/${createdBusiness.id}`);
+      history.push("/home");
     }
   };
 
@@ -54,6 +55,12 @@ export const EditBusiness = () => {
     }
     if (!regex.test(imageUrl)) {
       errors.push("Image url must start with http and end in jpg, gif or png");
+      errors.push(
+        "If you do not have an image at the moment, use the below url:"
+      );
+      errors.push(
+        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/766/healthyfoodsnoteveryday-main-1508848485.jpg"
+      );
     }
     if (!address.length || !city.length || !state.length) {
       errors.push("We'd love to know where it is at");
@@ -129,7 +136,7 @@ export const EditBusiness = () => {
         ></input>
       </label>
       <button type="submit" disabled={validationErrors.length > 0}>
-        Create new business!
+        Edit business
       </button>
       <button type="button" onClick={handleCancel}>
         Cancel

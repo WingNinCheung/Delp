@@ -37,10 +37,8 @@ export const AddBusiness = () => {
       state,
       zipCode,
     };
-
     const createdBusiness = await dispatch(addBusiness(payload));
 
-    console.log(createdBusiness);
     if (createdBusiness) {
       history.push(`/business/${createdBusiness.id}`);
     }
@@ -55,6 +53,12 @@ export const AddBusiness = () => {
     }
     if (!regex.test(imageUrl)) {
       errors.push("Image url must start with http and end in jpg, gif or png");
+      errors.push(
+        "If you do not have an image at the moment, use the below url:"
+      );
+      errors.push(
+        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/766/healthyfoodsnoteveryday-main-1508848485.jpg"
+      );
     }
     if (!address.length || !city.length || !state.length) {
       errors.push("We'd love to know where it is at");
