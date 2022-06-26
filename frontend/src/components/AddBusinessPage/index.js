@@ -15,6 +15,7 @@ export const AddBusiness = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
+  const [validationErrors, setValidationErrors] = useState([]);
 
   const handleCancel = (e) => {
     e.preventDefault();
@@ -22,9 +23,33 @@ export const AddBusiness = () => {
   };
   const handleSubmit = (e) => {};
 
+  useEffect(() => {
+    const errors = [];
+    let regex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+
+    if (!title.length) {
+      errors.push("Title cannot be empty!");
+    }
+    if (!regex.test(image)) {
+      errors.push("Image url must start with http and end in jpg, gif or png");
+    }
+    if (!address.length || !city.length || !state.length) {
+      errors.push("We'd love to know where it is at");
+    }
+    if (zipCode.length !== 5) {
+      errors.push("Invalid zip code!");
+    }
+    setValidationErrors(errors);
+  }, [title, image, address, city, state, zipCode]);
+
   return (
     <form className="add-business-form" onSubmit={handleSubmit}>
       <h2>Add Your Business!</h2>
+      <ul className="errors">
+        {validationErrors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
       <label>
         Title: {}
         <input
@@ -36,7 +61,7 @@ export const AddBusiness = () => {
       <label>
         Image Url: {}
         <input
-          placeholder="Url of your business"
+          placeholder="Image link of your business"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         ></input>
