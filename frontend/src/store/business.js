@@ -29,7 +29,7 @@ export const getBusinesses = () => async (dispatch) => {
 };
 
 export const addBusiness = (business) => async (dispatch) => {
-  const res = await fetch("/api/business", {
+  const res = await csrfFetch("/api/business", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(business),
@@ -44,9 +44,9 @@ export const addBusiness = (business) => async (dispatch) => {
 
 // Reducer
 const businessReducer = (state = {}, action) => {
+  let newState = {};
   switch (action.type) {
     case LOAD_BUSINESS:
-      let newState = {};
       action.businesses.forEach((business) => {
         newState[business.id] = business;
       });

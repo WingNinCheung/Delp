@@ -16,8 +16,17 @@ router.get("/", async (req, res) => {
 router.post(
   "/",
   asyncHandler(async (req, res) => {
-    const newBusiness = await Business.create(req.body);
-    return res.redirect("/home");
+    const business = ({
+      ownerId,
+      title,
+      imageUrl,
+      description,
+      address,
+      city,
+      state,
+      zipCode,
+    } = await Business.create(req.body));
+    return res.json(business);
   })
 );
 

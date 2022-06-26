@@ -7,9 +7,12 @@ export const AddBusiness = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // to get the user id of the user who will add this form
+  const { id } = useSelector((state) => state.session.user);
+
   // react state
   const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -21,7 +24,27 @@ export const AddBusiness = () => {
     e.preventDefault();
     history.push("/home");
   };
-  const handleSubmit = (e) => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      ownerId: id,
+      title,
+      imageUrl,
+      description,
+      address,
+      city,
+      state,
+      zipCode,
+    };
+
+    const createdBusiness = await dispatch(addBusiness(payload));
+
+    console.log(createdBusiness);
+    if (createdBusiness) {
+      history.push(`/business/${createdBusiness.id}`);
+    }
+  };
 
   useEffect(() => {
     const errors = [];
@@ -30,7 +53,7 @@ export const AddBusiness = () => {
     if (!title.length) {
       errors.push("Title cannot be empty!");
     }
-    if (!regex.test(image)) {
+    if (!regex.test(imageUrl)) {
       errors.push("Image url must start with http and end in jpg, gif or png");
     }
     if (!address.length || !city.length || !state.length) {
@@ -40,7 +63,7 @@ export const AddBusiness = () => {
       errors.push("Invalid zip code!");
     }
     setValidationErrors(errors);
-  }, [title, image, address, city, state, zipCode]);
+  }, [title, imageUrl, address, city, state, zipCode]);
 
   return (
     <form className="add-business-form" onSubmit={handleSubmit}>
@@ -62,8 +85,8 @@ export const AddBusiness = () => {
         Image Url: {}
         <input
           placeholder="Image link of your business"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
         ></input>
       </label>
       <label>
@@ -106,7 +129,9 @@ export const AddBusiness = () => {
           onChange={(e) => setZipCode(e.target.value)}
         ></input>
       </label>
-      <button type="submit">Create new business!</button>
+      <button type="submit" disabled={validationErrors.length > 0}>
+        Create new business!
+      </button>
       <button type="button" onClick={handleCancel}>
         Cancel
       </button>
