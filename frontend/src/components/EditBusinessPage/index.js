@@ -1,34 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addBusiness } from "../../store/business";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { updateBusiness } from "../../store/business";
 
-export const AddBusiness = () => {
+export const EditBusiness = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // to get the user id of the user who will add this form
-  const { id } = useSelector((state) => state.session.user);
+  const { id } = useParams();
+  const thisBusiness = useSelector((state) => state.business[id]);
 
-  // react state
-  const [title, setTitle] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [description, setDescription] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  const [title, setTitle] = useState(thisBusiness.title);
+  const [imageUrl, setImageUrl] = useState(thisBusiness.imageUrl);
+  const [description, setDescription] = useState(thisBusiness.description);
+  const [address, setAddress] = useState(thisBusiness.address);
+  const [city, setCity] = useState(thisBusiness.city);
+  const [state, setState] = useState(thisBusiness.state);
+  const [zipCode, setZipCode] = useState(`${thisBusiness.zipCode}`);
   const [validationErrors, setValidationErrors] = useState([]);
 
   const handleCancel = (e) => {
     e.preventDefault();
-    history.push("/home");
+    history.push(`/business/${id}`);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
-      ownerId: id,
+      ...thisBusiness,
+      ownerId: thisBusiness.ownerId,
       title,
       imageUrl,
       description,
@@ -37,10 +38,11 @@ export const AddBusiness = () => {
       state,
       zipCode,
     };
-    const createdBusiness = await dispatch(addBusiness(payload));
+
+    const createdBusiness = await dispatch(updateBusiness(payload, id));
 
     if (createdBusiness) {
-      history.push(`/business/${createdBusiness.id}`);
+      history.push("/home");
     }
   };
 
@@ -70,8 +72,8 @@ export const AddBusiness = () => {
   }, [title, imageUrl, address, city, state, zipCode]);
 
   return (
-    <form className="add-business-form" onSubmit={handleSubmit}>
-      <h2>Add Your Business!</h2>
+    <form className="edit-business-form" onSubmit={handleSubmit}>
+      <h2>Edit Your Business!</h2>
       <ul className="errors">
         {validationErrors.map((error) => (
           <li key={error}>{error}</li>
@@ -134,7 +136,7 @@ export const AddBusiness = () => {
         ></input>
       </label>
       <button type="submit" disabled={validationErrors.length > 0}>
-        Create new business!
+        Edit business
       </button>
       <button type="button" onClick={handleCancel}>
         Cancel
@@ -142,3 +144,5 @@ export const AddBusiness = () => {
     </form>
   );
 };
+
+export default EditBusiness;

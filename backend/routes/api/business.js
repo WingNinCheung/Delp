@@ -30,4 +30,38 @@ router.post(
   })
 );
 
+router.put(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const {
+      id,
+      ownerId,
+      title,
+      imageUrl,
+      description,
+      address,
+      city,
+      state,
+      zipCode,
+    } = req.body;
+
+    await Business.update(
+      {
+        ownerId,
+        title,
+        imageUrl,
+        description,
+        address,
+        city,
+        state,
+        zipCode,
+      },
+      {
+        where: { id },
+      }
+    );
+    return res.json(id);
+  })
+);
+
 module.exports = router;

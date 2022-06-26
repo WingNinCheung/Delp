@@ -1,16 +1,26 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+// import { useEffect } from "react";
+// import { getBusinesses } from "../../store/business";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
   let thisBusiness;
+  const history = useHistory();
 
+  const loggedUserId = useSelector((state) => state.session.user.id);
   const allBusiness = useSelector((state) => state.business);
+
   for (const business in allBusiness) {
     if (id === business) {
       thisBusiness = allBusiness[business];
     }
   }
+  const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
+
+  const handleEdit = (e) => {
+    history.push(`/business/${thisBusiness.id}/edit`);
+  };
 
   return (
     <>
@@ -32,6 +42,11 @@ export const BusinessDetail = () => {
         </div>
         <div className="info-detail">
           <h2>Info</h2>
+          <div className="edit-button">
+            {isAuthorizedOwner ? (
+              <button onClick={handleEdit}>Edit Info</button>
+            ) : null}
+          </div>
           <div className="description">
             <h3>Description</h3>
             {thisBusiness.description}
