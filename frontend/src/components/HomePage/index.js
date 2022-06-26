@@ -2,11 +2,12 @@ import "./home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/business";
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const allBusinesses = useSelector((state) => Object.values(state.business));
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getBusinesses());
@@ -15,7 +16,9 @@ export const Home = () => {
   return (
     <>
       <div className="add-business">
-        <button> Add My Business</button>
+        <button onClick={() => history.push("/add-my-business")}>
+          Add My Business
+        </button>
       </div>
       <div className="business-list">
         {allBusinesses.map((business) => (

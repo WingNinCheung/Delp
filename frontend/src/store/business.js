@@ -1,12 +1,20 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD_BUSINESS = "business/loadBusiness";
+const ADD_BUSINESS = "business/ADD_BUSINESS";
 
 // Action
 const load = (businesses) => {
   return {
     type: LOAD_BUSINESS,
     businesses,
+  };
+};
+
+const addOneBusiness = (business) => {
+  return {
+    type: ADD_BUSINESS,
+    business,
   };
 };
 
@@ -20,14 +28,31 @@ export const getBusinesses = () => async (dispatch) => {
   }
 };
 
+export const addBusiness = (business) => async (dispatch) => {
+  const res = await csrfFetch("/api/business", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(business),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(addOneBusiness(data));
+    return data;
+  }
+};
+
 // Reducer
 const businessReducer = (state = {}, action) => {
+  let newState = {};
   switch (action.type) {
     case LOAD_BUSINESS:
-      const newState = {};
       action.businesses.forEach((business) => {
         newState[business.id] = business;
       });
+      return newState;
+    case ADD_BUSINESS:
+      newState = { ...state, [action.business.id]: action.business };
       return newState;
     default:
       return state;
