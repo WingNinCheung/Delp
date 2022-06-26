@@ -1,9 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import EditBusiness from "../EditBusinessPage";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
   let thisBusiness;
+  const history = useHistory();
 
   const allBusiness = useSelector((state) => state.business);
   for (const business in allBusiness) {
@@ -11,6 +14,10 @@ export const BusinessDetail = () => {
       thisBusiness = allBusiness[business];
     }
   }
+
+  const handleEdit = (e) => {
+    history.push(`/business/${thisBusiness.id}/edit`);
+  };
 
   return (
     <>
@@ -32,6 +39,9 @@ export const BusinessDetail = () => {
         </div>
         <div className="info-detail">
           <h2>Info</h2>
+          <div className="edit-button">
+            <button onClick={handleEdit}>Edit Info</button>
+          </div>
           <div className="description">
             <h3>Description</h3>
             {thisBusiness.description}

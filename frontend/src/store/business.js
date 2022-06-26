@@ -42,6 +42,20 @@ export const addBusiness = (business) => async (dispatch) => {
   }
 };
 
+export const updateBusiness = (data) => async (dispatch) => {
+  const res = await csrfFetch(`/api/business/${data.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (res.ok) {
+    const business = await res.json();
+    dispatch(addOneBusiness(business));
+    return business;
+  }
+};
+
 // Reducer
 const businessReducer = (state = {}, action) => {
   let newState = {};
@@ -52,7 +66,17 @@ const businessReducer = (state = {}, action) => {
       });
       return newState;
     case ADD_BUSINESS:
-      newState = { ...state, [action.business.id]: action.business };
+      if (!state[action.business.id]) {
+        newState = { ...state, [action.business.id]: action.business };
+        return newState;
+      }
+      newState = {
+        ...state,
+        [action.business.id]: {
+          ...state[action.business.id],
+          ...action.business,
+        },
+      };
       return newState;
     default:
       return state;

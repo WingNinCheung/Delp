@@ -9,6 +9,7 @@ import { Home } from "./components/HomePage";
 import { Slash } from "./components/SlashPage";
 import { BusinessDetail } from "./components/BusinessDatailPage";
 import { AddBusiness } from "./components/AddBusinessPage";
+import EditBusiness from "./components/EditBusinessPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route exact path="/add-my-business">
           <AddBusiness />
+        </Route>
+        <Route exact path="/business/:id/edit">
+          <EditBusiness />
         </Route>
       </Switch>
     </>
