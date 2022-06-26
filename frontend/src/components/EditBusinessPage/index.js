@@ -10,13 +10,13 @@ export const EditBusiness = () => {
   const { id } = useParams();
   const thisBusiness = useSelector((state) => state.business[id]);
 
-  const [title, setTitle] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [description, setDescription] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zipCode, setZipCode] = useState("");
+  const [title, setTitle] = useState(thisBusiness.title);
+  const [imageUrl, setImageUrl] = useState(thisBusiness.imageUrl);
+  const [description, setDescription] = useState(thisBusiness.description);
+  const [address, setAddress] = useState(thisBusiness.address);
+  const [city, setCity] = useState(thisBusiness.city);
+  const [state, setState] = useState(thisBusiness.state);
+  const [zipCode, setZipCode] = useState(`${thisBusiness.zipCode}`);
   const [validationErrors, setValidationErrors] = useState([]);
 
   const handleCancel = (e) => {
@@ -65,8 +65,8 @@ export const EditBusiness = () => {
   }, [title, imageUrl, address, city, state, zipCode]);
 
   return (
-    <form className="add-business-form" onSubmit={handleSubmit}>
-      <h2>Add Your Business!</h2>
+    <form className="edit-business-form" onSubmit={handleSubmit}>
+      <h2>Edit Your Business!</h2>
       <ul className="errors">
         {validationErrors.map((error) => (
           <li key={error}>{error}</li>

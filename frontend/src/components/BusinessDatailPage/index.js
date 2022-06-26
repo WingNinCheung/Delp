@@ -17,9 +17,7 @@ export const BusinessDetail = () => {
     }
   }
 
-  console.log("logged in ID ", loggedUserId);
   const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
-  console.log(isAuthorizedOwner);
 
   const handleEdit = (e) => {
     history.push(`/business/${thisBusiness.id}/edit`);
