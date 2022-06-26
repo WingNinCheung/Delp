@@ -1,5 +1,7 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+// import { useEffect } from "react";
+// import { getBusinesses } from "../../store/business";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
@@ -7,7 +9,6 @@ export const BusinessDetail = () => {
   const history = useHistory();
 
   const loggedUserId = useSelector((state) => state.session.user.id);
-
   const allBusiness = useSelector((state) => state.business);
 
   for (const business in allBusiness) {
