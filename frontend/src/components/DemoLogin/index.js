@@ -6,7 +6,6 @@ export default function DemoLogin() {
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log("session: ", sessionUser);
 
   if (sessionUser) {
     history.push("/home");

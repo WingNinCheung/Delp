@@ -7,8 +7,8 @@ export const AddBusiness = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // to get the user id of the user who will add this form
-  const { id } = useSelector((state) => state.session.user);
+  const user = useSelector((state) => state.session);
+  const id = user?.user?.id;
 
   // react state
   const [title, setTitle] = useState("");
