@@ -1,12 +1,13 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import { getBusinesses } from "../../store/business";
+import { deleteBusiness } from "../../store/business";
+import { useDispatch } from "react-redux";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
   let thisBusiness;
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const loggedUserId = useSelector((state) => state.session.user.id);
   const allBusiness = useSelector((state) => state.business);
@@ -23,8 +24,9 @@ export const BusinessDetail = () => {
   };
 
   const handleDelete = (e) => {
-    // dispatch here
+    dispatch(deleteBusiness(id));
     history.push("/home");
+    // return <Redirect to="/home" />;
   };
 
   return (
@@ -54,7 +56,12 @@ export const BusinessDetail = () => {
           </div>
           <div className="delete-button">
             {isAuthorizedOwner ? (
-              <button onClick={handleDelete}>Delete Business</button>
+              <button
+                data-confirm="Are you sure to delete this item?"
+                onClick={handleDelete}
+              >
+                Delete Business
+              </button>
             ) : null}
           </div>
           <div className="description">
