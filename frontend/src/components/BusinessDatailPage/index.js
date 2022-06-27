@@ -2,15 +2,23 @@ import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { deleteBusiness } from "../../store/business";
 import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { getBusinesses } from "../../store/business";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
   let thisBusiness;
   const history = useHistory();
   const dispatch = useDispatch();
+  // const [loggedUserId, setLoginUser] = useState(null);
 
   const loggedUserId = useSelector((state) => state.session.user.id);
+
   const allBusiness = useSelector((state) => state.business);
+
+  // useEffect(() => {
+  //   setLoginUser(loggedUserId);
+  // }, [loggedUserId]);
 
   for (const business in allBusiness) {
     if (id === business) {
@@ -20,6 +28,10 @@ export const BusinessDetail = () => {
 
   const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
 
+  useEffect(() => {
+    dispatch(getBusinesses());
+  }, [dispatch, loggedUserId]);
+
   const handleEdit = (e) => {
     history.push(`/business/${thisBusiness.id}/edit`);
   };
@@ -27,7 +39,6 @@ export const BusinessDetail = () => {
   const handleDelete = (e) => {
     dispatch(deleteBusiness(id));
     window.location.href = "/home";
-    // history.push("/home");
   };
 
   return (
