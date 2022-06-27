@@ -17,6 +17,7 @@ export const BusinessDetail = () => {
       thisBusiness = allBusiness[business];
     }
   }
+
   const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
 
   const handleEdit = (e) => {
@@ -25,8 +26,8 @@ export const BusinessDetail = () => {
 
   const handleDelete = (e) => {
     dispatch(deleteBusiness(id));
-    history.push("/home");
-    // return <Redirect to="/home" />;
+    window.location.href = "/home";
+    // history.push("/home");
   };
 
   return (
@@ -56,12 +57,7 @@ export const BusinessDetail = () => {
           </div>
           <div className="delete-button">
             {isAuthorizedOwner ? (
-              <button
-                data-confirm="Are you sure to delete this item?"
-                onClick={handleDelete}
-              >
-                Delete Business
-              </button>
+              <button onClick={handleDelete}>Delete Business</button>
             ) : null}
           </div>
           <div className="description">
