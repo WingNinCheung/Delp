@@ -64,4 +64,14 @@ router.put(
   })
 );
 
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const { id } = req.body;
+    await Business.destroy({
+      where: { id },
+    });
+    return res.json(id);
+  })
+);
 module.exports = router;

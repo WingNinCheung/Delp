@@ -18,6 +18,9 @@ const addOneBusiness = (business) => {
   };
 };
 
+const deleteBusiness = (business) => {
+  return;
+};
 // Thunk
 export const getBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/business");

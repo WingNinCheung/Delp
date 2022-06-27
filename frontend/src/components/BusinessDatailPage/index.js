@@ -22,6 +22,11 @@ export const BusinessDetail = () => {
     history.push(`/business/${thisBusiness.id}/edit`);
   };
 
+  const handleDelete = (e) => {
+    // dispatch here
+    history.push("/home");
+  };
+
   return (
     <>
       <div
@@ -45,6 +50,11 @@ export const BusinessDetail = () => {
           <div className="edit-button">
             {isAuthorizedOwner ? (
               <button onClick={handleEdit}>Edit Info</button>
+            ) : null}
+          </div>
+          <div className="delete-button">
+            {isAuthorizedOwner ? (
+              <button onClick={handleDelete}>Delete Business</button>
             ) : null}
           </div>
           <div className="description">
