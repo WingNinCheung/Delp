@@ -4,6 +4,7 @@ import { deleteBusiness } from "../../store/business";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBusinesses } from "../../store/business";
+import Reviews from "../Reviews";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
@@ -75,6 +76,7 @@ export const BusinessDetail = () => {
           </div>
           <div className="review">
             <h2>Reviews</h2>
+            <Reviews />
           </div>
         </div>
       </div>
