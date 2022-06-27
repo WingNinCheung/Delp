@@ -2,6 +2,7 @@ import { getReviews } from "../../store/review";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import CreateReview from "./createReviewForm";
 
 const Reviews = () => {
   // business id
@@ -37,6 +38,10 @@ const Reviews = () => {
             <div key={review.reviewBody}>{review.reviewBody}</div>
           </>
         ))}
+      </div>
+      <div className="create-review-container">
+        <h3>Write a review!</h3>
+        <CreateReview />
       </div>
     </div>
   );
