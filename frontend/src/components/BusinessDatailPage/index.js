@@ -7,12 +7,9 @@ import { getBusinesses } from "../../store/business";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
-  // let thisBusiness;
   const history = useHistory();
   const dispatch = useDispatch();
-  // const [loggedUserId, setLoginUser] = useState(null);
 
-  // const loggedUser = useSelector((state) => state.session.user);
   const loggedUserId = useSelector((state) => state.session.user?.id);
 
   const thisBusiness = useSelector((state) => state.business[id]);
@@ -21,13 +18,6 @@ export const BusinessDetail = () => {
     dispatch(getBusinesses());
   }, [loggedUserId, dispatch]);
 
-  // if (allBusiness) {
-  //   for (const business in allBusiness) {
-  //     if (id === business) {
-  //       thisBusiness = allBusiness[business];
-  //     }
-  //   }
-  // }
   const isAuthorizedOwner = loggedUserId === thisBusiness?.ownerId;
 
   const handleEdit = (e) => {
