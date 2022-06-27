@@ -1,25 +1,44 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import { getBusinesses } from "../../store/business";
+import { deleteBusiness } from "../../store/business";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { getBusinesses } from "../../store/business";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
   let thisBusiness;
   const history = useHistory();
+  const dispatch = useDispatch();
+  // const [loggedUserId, setLoginUser] = useState(null);
 
   const loggedUserId = useSelector((state) => state.session.user.id);
+
   const allBusiness = useSelector((state) => state.business);
+
+  // useEffect(() => {
+  //   setLoginUser(loggedUserId);
+  // }, [loggedUserId]);
 
   for (const business in allBusiness) {
     if (id === business) {
       thisBusiness = allBusiness[business];
     }
   }
+
   const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
+
+  useEffect(() => {
+    dispatch(getBusinesses());
+  }, [dispatch, loggedUserId]);
 
   const handleEdit = (e) => {
     history.push(`/business/${thisBusiness.id}/edit`);
+  };
+
+  const handleDelete = (e) => {
+    dispatch(deleteBusiness(id));
+    window.location.href = "/home";
   };
 
   return (
@@ -45,6 +64,11 @@ export const BusinessDetail = () => {
           <div className="edit-button">
             {isAuthorizedOwner ? (
               <button onClick={handleEdit}>Edit Info</button>
+            ) : null}
+          </div>
+          <div className="delete-button">
+            {isAuthorizedOwner ? (
+              <button onClick={handleDelete}>Delete Business</button>
             ) : null}
           </div>
           <div className="description">

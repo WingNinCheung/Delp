@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_BUSINESS = "business/loadBusiness";
 const ADD_BUSINESS = "business/ADD_BUSINESS";
+const DELETE_BUSINESS = "business/DELETE_BUSINESS";
 
 // Action
 const load = (businesses) => {
@@ -18,6 +19,12 @@ const addOneBusiness = (business) => {
   };
 };
 
+const deleteOneBusiness = (businessId) => {
+  return {
+    type: DELETE_BUSINESS,
+    businessId,
+  };
+};
 // Thunk
 export const getBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/business");
@@ -57,6 +64,17 @@ export const updateBusiness = (data, id) => async (dispatch) => {
   }
 };
 
+export const deleteBusiness = (id) => async (dispatch) => {
+  const res = csrfFetch(`/api/business/${id}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const businessId = await res.json();
+    dispatch(deleteOneBusiness(businessId));
+  }
+};
+
 // Reducer
 const businessReducer = (state = {}, action) => {
   let newState = {};
@@ -78,6 +96,10 @@ const businessReducer = (state = {}, action) => {
           ...action.business,
         },
       };
+      return newState;
+    case DELETE_BUSINESS:
+      newState = { ...state };
+      delete newState[action.businessId.id];
       return newState;
     default:
       return state;

@@ -39,7 +39,7 @@ export const EditBusiness = () => {
       zipCode,
     };
 
-    const createdBusiness = await dispatch(updateBusiness(payload, id));
+    const createdBusiness = dispatch(updateBusiness(payload, id));
 
     if (createdBusiness) {
       history.push("/home");

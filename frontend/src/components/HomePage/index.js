@@ -22,7 +22,7 @@ export const Home = () => {
       </div>
       <div className="business-list">
         {allBusinesses.map((business) => (
-          <NavLink to={`/business/${business.id}`}>
+          <NavLink key={`${business.id}`} to={`/business/${business.id}`}>
             <div>
               <img
                 height="300px"

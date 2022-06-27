@@ -64,4 +64,16 @@ router.put(
   })
 );
 
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    console.log("id is ", id);
+    const business = await Business.findByPk(id);
+    await Business.destroy({
+      where: { id: business.id },
+    });
+    return res.json(id);
+  })
+);
 module.exports = router;
