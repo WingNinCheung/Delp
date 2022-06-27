@@ -12,25 +12,30 @@ export const BusinessDetail = () => {
   const dispatch = useDispatch();
   // const [loggedUserId, setLoginUser] = useState(null);
 
-  const loggedUserId = useSelector((state) => state.session.user.id);
+  // const loggedUser = useSelector((state) => state.session.user);
+  const loggedUserId = useSelector((state) => state.session.user?.id);
+  console.log(loggedUserId);
 
-  const allBusiness = useSelector((state) => state.business);
+  const allBusiness = useSelector((state) => state?.business);
+  // console.log("business session is now ", allBusiness);
 
   // useEffect(() => {
   //   setLoginUser(loggedUserId);
   // }, [loggedUserId]);
 
-  for (const business in allBusiness) {
-    if (id === business) {
-      thisBusiness = allBusiness[business];
+  if (allBusiness) {
+    for (const business in allBusiness) {
+      if (id === business) {
+        thisBusiness = allBusiness[business];
+      }
     }
   }
+  let content = null;
+  const isAuthorizedOwner = loggedUserId === thisBusiness?.ownerId;
 
-  const isAuthorizedOwner = loggedUserId === thisBusiness.ownerId;
-
-  useEffect(() => {
-    dispatch(getBusinesses());
-  }, [dispatch, loggedUserId]);
+  // useEffect(() => {
+  //   dispatch(getBusinesses());
+  // }, [dispatch, loggedUserId]);
 
   const handleEdit = (e) => {
     history.push(`/business/${thisBusiness.id}/edit`);
@@ -42,7 +47,8 @@ export const BusinessDetail = () => {
   };
 
   return (
-    <>
+    // {loggedUserId && (
+    <div className="detail-container">
       <div
         className="banner-session"
         style={{
@@ -85,6 +91,6 @@ export const BusinessDetail = () => {
           <h2>Reviews</h2>
         </div>
       </div>
-    </>
+    </div>
   );
 };
