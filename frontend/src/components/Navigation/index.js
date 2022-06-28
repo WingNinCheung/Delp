@@ -25,20 +25,20 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
+        <div className="title">Delp!</div>
+        <img
+          className="icon"
+          src="https://cdn-icons-png.flaticon.com/512/174/174882.png"
+          alt="Delp Icon"
+        ></img>
         <nav className="nav">
           <LoginFormModal />
           <button className="signup" onClick={handleSignup}>
             Sign Up
           </button>
-          {/* <NavLink className="signup" to="/signup">
-            Sign Up
-          </NavLink> */}
           <button className="Demo" onClick={handleDemo}>
             Demo
           </button>
-          {/* <NavLink className="demo" exact to="/demo">
-            Demo User
-          </NavLink> */}
         </nav>
       </>
     );

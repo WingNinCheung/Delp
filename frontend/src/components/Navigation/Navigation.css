@@ -57,3 +57,20 @@ body {
   background-color: rgba(37, 37, 37, 0);
   color: white;
 }
+
+.icon {
+  height: 50px;
+  position: absolute;
+  left: 10%;
+  top: 6%;
+}
+
+.title {
+  color: red;
+  position: absolute;
+  right: 90%;
+  top: 5%;
+  font-size: 55px;
+  font-family: Helvetica Neue, sans-serif;
+  color: white;
+}
