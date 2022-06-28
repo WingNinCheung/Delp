@@ -74,3 +74,54 @@ body {
   font-family: Helvetica Neue, sans-serif;
   color: white;
 }
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  background-color: rgba(21, 15, 15, 0.546);
+  bottom: 0;
+  width: 99%;
+  height: 5%;
+  align-items: center;
+  padding: 5px;
+  color: white;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.about {
+  color: white;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.Ricky {
+  color: white;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.linkedin {
+  color: white;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.links {
+  color: white;
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.tools {
+  display: flex;
+  justify-content: left;
+}
+
+.React {
+  /* margin: 10px; */
+}
+
+.Redux {
+  /* margin: 5px; */
+}
+.Express {
+}
+.Postgre {
+}
