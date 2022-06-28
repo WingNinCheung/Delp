@@ -18,7 +18,7 @@ const Reviews = () => {
     review.createdAt = date.toDateString();
   });
 
-  // console.log(reviews);
+  // console.log("Here" + reviews);
 
   // The user name who made that review
   // console.log(reviews[0].User.username);
@@ -32,10 +32,10 @@ const Reviews = () => {
       <div>
         {reviews.map((review) => (
           <>
-            <h3 className="username">{review.User.username}</h3>
-            <div key={review.createdAt}>{review.createdAt}</div>
-            <div key={review.rating}>Rating:{review.rating}</div>
-            <div key={review.reviewBody}>{review.reviewBody}</div>
+            <h3 className="username">{review.User?.username}</h3>
+            <div key={review.createdAt}>{review?.createdAt}</div>
+            <div key={review.rating}>Rating:{review?.rating}</div>
+            <div key={review.reviewBody}>{review?.reviewBody}</div>
           </>
         ))}
       </div>

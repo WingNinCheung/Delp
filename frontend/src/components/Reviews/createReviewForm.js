@@ -1,11 +1,38 @@
 // import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { addReview } from "../../store/review";
 
 const CreateReview = () => {
   const [rating, setRating] = useState(1);
-  const [reviewContent, setreviewContent] = useState("");
+  const [reviewBody, setreviewBody] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  // business id
+  const { id } = useParams();
+
+  const user = useSelector((state) => state.session.user);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      userId: user.id,
+      businessId: id,
+      rating,
+      reviewBody,
+    };
+
+    const createdReview = dispatch(addReview(payload, id));
+
+    if (createdReview) {
+      history.push(`/business/${id}`);
+    }
+  };
   return (
-    <form className="create-review">
+    <form className="create-review" onSubmit={handleSubmit}>
       <label>Select your rating</label>
       <select
         name="rating"
@@ -23,12 +50,12 @@ const CreateReview = () => {
           rows="10"
           cols="100"
           placeholder="How was your experience?"
-          value={reviewContent}
-          onChange={(e) => setreviewContent(e.target.value)}
+          value={reviewBody}
+          onChange={(e) => setreviewBody(e.target.value)}
         ></textarea>
       </div>
       <div>
-        <button className="review-button" disabled={!reviewContent}>
+        <button className="review-button" disabled={!reviewBody}>
           Post Review
         </button>
       </div>
