@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 // const { handleValidationErrors } = require("../../utils/validation");
 // const { check } = require("express-validator");
 
-const { Business, User } = require("../../db/models");
+const { Business, User, Review } = require("../../db/models");
 
 router.get("/", async (req, res) => {
   const businesses = await Business.findAll({
@@ -70,6 +70,16 @@ router.delete(
     const id = req.params.id;
     console.log("id is ", id);
     const business = await Business.findByPk(id);
+    console.log("The data!!!", business);
+
+    const reviews = await Review.findAll({
+      where: { businessId: business.id },
+    });
+
+    await Review.destroy({
+      where: { businessId: business.id },
+    });
+
     await Business.destroy({
       where: { id: business.id },
     });
