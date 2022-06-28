@@ -34,7 +34,7 @@ function Navigation({ isLoaded }) {
             Sign Up
           </NavLink> */}
           <button className="Demo" onClick={handleDemo}>
-            Demo User Login
+            Demo
           </button>
           {/* <NavLink className="demo" exact to="/demo">
             Demo User

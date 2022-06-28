@@ -2,6 +2,7 @@ body {
   background: url("https://images.squarespace-cdn.com/content/v1/5a06aac2cf81e04b144237a5/1532940426404-X69ZZ4A29BFRROW19A8M/IMG_0615.jpg");
   background-size: cover;
   animation: slide 60s linear;
+  font-family: Helvetica Neue, sans-serif;
 }
 .nav {
   background-color: transparent;
@@ -9,4 +10,50 @@ body {
   display: flex;
   justify-content: flex-end;
   height: 10%;
+  margin: 30px;
+}
+
+.signup {
+  font-family: Helvetica Neue, sans-serif;
+  height: 50%;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 15px;
+  width: 7em;
+  border: 2px solid #f5f5f5;
+  background-color: red;
+  color: white;
+}
+
+.demo {
+  font-family: Helvetica Neue, sans-serif;
+  height: 50%;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 450;
+  padding: 15px;
+  width: 7em;
+  border: 2px solid #f5f5f5;
+  background-color: rgba(37, 37, 37, 0);
+  color: white;
+}
+
+.login-button {
+  font-family: Helvetica Neue, sans-serif;
+  height: 50%;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 450;
+  padding: 15px;
+  width: 7em;
+  border: 2px solid #f5f5f5;
+  background-color: rgba(37, 37, 37, 0);
+  color: white;
 }
