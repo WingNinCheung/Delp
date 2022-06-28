@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -9,17 +9,31 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const history = useHistory();
+  const logged = useSelector((state) => state.session.user);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser());
+  }, [dispatch]);
+
+  if (logged) {
+    return <Redirect to="/home" />;
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+    let res = await dispatch(
+      sessionActions.login({ credential, password })
+    ).catch(async (res) => {
+      const data = await res.json();
+      console.log("Data are ", data);
+      if (data && data.errors) {
+        setErrors(data.errors);
       }
-    );
-    return history.push("/home");
+    });
+    if (res) {
+      history.push("/home");
+    }
   };
 
   return (
