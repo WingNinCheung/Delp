@@ -36,14 +36,6 @@ function LoginForm() {
     }
   };
 
-  // useEffect(() => {
-  //   // if (logged) return <Redirect to="/home" />;
-  //   if (logged) {
-  //     history.push("/home");
-  //   }
-  //   console.log("logged is ", logged);
-  // }, [logged]);
-
   return (
     <form onSubmit={handleSubmit}>
       <ul>
