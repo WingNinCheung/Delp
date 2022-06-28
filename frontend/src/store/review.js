@@ -50,14 +50,11 @@ export const addReview = (review, businessId) => async (dispatch) => {
 };
 
 export const deleteReview = (reviewId) => async (dispatch) => {
-  console.log("Im here");
   const res = await csrfFetch(`/api/reviews/${reviewId}`, {
     method: "DELETE",
   });
 
-  console.group("the res is here", res);
   if (res.ok) {
-    const data = await res.json();
     dispatch(deleteOneReview(reviewId));
   }
 };

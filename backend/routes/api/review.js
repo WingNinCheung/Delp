@@ -40,11 +40,11 @@ router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
     const id = req.params.id;
-    const review = await Review.findByPk(id);
 
     await Review.destroy({
       where: { id },
     });
+
     return res.json(id);
   })
 );

@@ -2,7 +2,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { deleteBusiness } from "../../store/business";
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getBusinesses } from "../../store/business";
 import Reviews from "../Reviews";
 
