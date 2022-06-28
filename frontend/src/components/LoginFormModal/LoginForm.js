@@ -22,17 +22,18 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    await dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
-        const data = await res.json();
-        if (data && data.errors) {
-          setErrors(data.errors);
-          console.log("hey");
-        }
+    let res = await dispatch(
+      sessionActions.login({ credential, password })
+    ).catch(async (res) => {
+      const data = await res.json();
+      console.log("Data are ", data);
+      if (data && data.errors) {
+        setErrors(data.errors);
       }
-    );
-
-    history.push("/home");
+    });
+    if (res) {
+      history.push("/home");
+    }
   };
 
   // useEffect(() => {
