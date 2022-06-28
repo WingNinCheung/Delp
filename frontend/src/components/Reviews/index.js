@@ -21,7 +21,6 @@ const Reviews = () => {
   });
 
   const handleDelete = (id) => {
-    console.log(id);
     dispatch(deleteReview(id));
   };
 
