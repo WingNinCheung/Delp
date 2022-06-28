@@ -10,27 +10,29 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
   const history = useHistory();
   const logged = useSelector((state) => state.session.user);
-  // console.log(logged);
 
-  if (logged) return <Redirect to="/home" />;
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser());
+  }, [dispatch]);
 
-  const handleSubmit = (e) => {
+  if (logged) {
+    return <Redirect to="/home" />;
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
+    await dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
-        console.log("data are ", data);
         if (data && data.errors) {
           setErrors(data.errors);
+          console.log("hey");
         }
       }
     );
-    // console.log("logged is ", logged);
-    // history.push("/home");
-    // // if (!errors.length) history.push("/home");
-    // console.log(errors);
-    // console.log(logged);
+
+    history.push("/home");
   };
 
   // useEffect(() => {
