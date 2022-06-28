@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_REVIEW = "review/LOAD_REVIEW";
 const ADD_REVIEW = "review/ADD_REVIEW";
-// const DELETE_BUSINESS = "business/DELETE_BUSINESS";
+const DELETE_REVIEW = "business/DELETE_REVIEW";
 
 // actions
 const load = (reviews) => {
@@ -16,6 +16,13 @@ const addOneReview = (review) => {
   return {
     type: ADD_REVIEW,
     review,
+  };
+};
+
+const deleteOneReview = (reviewId) => {
+  return {
+    type: DELETE_REVIEW,
+    reviewId,
   };
 };
 
@@ -39,6 +46,19 @@ export const addReview = (review, businessId) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(addOneReview(data));
+  }
+};
+
+export const deleteReview = (reviewId) => async (dispatch) => {
+  console.log("Im here");
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "DELETE",
+  });
+
+  console.group("the res is here", res);
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(deleteOneReview(reviewId));
   }
 };
 
@@ -66,6 +86,10 @@ const reviewReducer = (state = {}, action) => {
         },
       };
       console.log("newState is ", newState);
+      return newState;
+    case DELETE_REVIEW:
+      newState = { ...state };
+      delete newState[action.reviewId];
       return newState;
     default:
       return state;

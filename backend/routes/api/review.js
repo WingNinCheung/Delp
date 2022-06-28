@@ -32,13 +32,20 @@ router.post(
       reviewBody,
     });
 
-    // const review = await Review.findAll({
-    //   where: { reviewBody },
-    //   include: User,
-    // });
-    // // console.log(review);
-    console.log("here ,..", data);
     return res.json(data);
+  })
+);
+
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const review = await Review.findByPk(id);
+
+    await Review.destroy({
+      where: { id },
+    });
+    return res.json(id);
   })
 );
 module.exports = router;

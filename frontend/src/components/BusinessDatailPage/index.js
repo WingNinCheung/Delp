@@ -2,7 +2,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { deleteBusiness } from "../../store/business";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getBusinesses } from "../../store/business";
 import Reviews from "../Reviews";
 
@@ -26,9 +26,7 @@ export const BusinessDetail = () => {
   };
 
   const handleDelete = (e) => {
-    console.log("You're here!", id);
     dispatch(deleteBusiness(id));
-    // dispatch(getBusinesses());
     window.location.href = "/home";
   };
 
