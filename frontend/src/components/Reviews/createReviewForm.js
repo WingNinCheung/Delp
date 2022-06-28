@@ -1,14 +1,13 @@
 // import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
-import { addReview } from "../../store/review";
+import { useParams } from "react-router-dom";
+import { addReview, getReviews } from "../../store/review";
 
 const CreateReview = () => {
   const [rating, setRating] = useState(1);
   const [reviewBody, setreviewBody] = useState("");
   const dispatch = useDispatch();
-  const history = useHistory();
 
   // business id
   const { id } = useParams();
@@ -28,9 +27,14 @@ const CreateReview = () => {
     const createdReview = dispatch(addReview(payload, id));
 
     if (createdReview) {
-      history.push(`/business/${id}`);
+      window.location.href = `/business/${id}`;
     }
   };
+
+  useEffect(() => {
+    dispatch(getReviews(id));
+  }, [dispatch, id]);
+
   return (
     <form className="create-review" onSubmit={handleSubmit}>
       <label>Select your rating</label>

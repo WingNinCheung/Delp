@@ -65,6 +65,7 @@ const reviewReducer = (state = {}, action) => {
           ...action.review,
         },
       };
+      console.log("newState is ", newState);
       return newState;
     default:
       return state;

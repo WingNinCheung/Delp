@@ -25,14 +25,20 @@ router.post(
     const newReview = req.body;
     const { userId, businessId, rating, reviewBody } = newReview;
 
-    await Review.create({ userId, businessId, rating, reviewBody });
-
-    const review = await Review.findAll({
-      where: { reviewBody },
-      include: User,
+    const data = await Review.create({
+      userId,
+      businessId,
+      rating,
+      reviewBody,
     });
-    // console.log(review);
-    return res.json(review);
+
+    // const review = await Review.findAll({
+    //   where: { reviewBody },
+    //   include: User,
+    // });
+    // // console.log(review);
+    console.log("here ,..", data);
+    return res.json(data);
   })
 );
 module.exports = router;

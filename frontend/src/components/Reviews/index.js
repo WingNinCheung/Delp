@@ -18,11 +18,6 @@ const Reviews = () => {
     review.createdAt = date.toDateString();
   });
 
-  // console.log("Here" + reviews);
-
-  // The user name who made that review
-  // console.log(reviews[0].User.username);
-
   useEffect(() => {
     dispatch(getReviews(id));
   }, [dispatch, id]);
@@ -31,12 +26,12 @@ const Reviews = () => {
     <div className="review-container">
       <div>
         {reviews.map((review) => (
-          <>
+          <div>
             <h3 className="username">{review.User?.username}</h3>
             <div key={review.createdAt}>{review?.createdAt}</div>
             <div key={review.rating}>Rating:{review?.rating}</div>
             <div key={review.reviewBody}>{review?.reviewBody}</div>
-          </>
+          </div>
         ))}
       </div>
       <div className="create-review-container">
