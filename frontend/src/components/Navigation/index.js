@@ -45,21 +45,19 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
-      <li>
-        {sessionUser ? (
-          <NavLink className="nav" exact to="/home">
-            Home
-          </NavLink>
-        ) : (
-          <NavLink className="nav" exact to="/">
-            Home
-          </NavLink>
-        )}
-
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <div>
+      {sessionUser ? (
+        <NavLink className="nav" exact to="/home">
+          Home
+        </NavLink>
+      ) : // (
+      //   <NavLink className="nav" exact to="/">
+      //     Home
+      //   </NavLink>
+      // )
+      null}
+      {isLoaded && sessionLinks}
+    </div>
   );
 }
 
