@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -10,12 +10,14 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
   const history = useHistory();
   const logged = useSelector((state) => state.session.user);
-  console.log(logged);
+  // console.log(logged);
+
+  if (logged) return <Redirect to="/home" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(sessionActions.login({ credential, password })).catch(
+    return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
         console.log("data are ", data);
@@ -24,11 +26,20 @@ function LoginForm() {
         }
       }
     );
-
-    history.push("/home");
-    // if (!errors.length) history.push("/home");
-    console.log(errors);
+    // console.log("logged is ", logged);
+    // history.push("/home");
+    // // if (!errors.length) history.push("/home");
+    // console.log(errors);
+    // console.log(logged);
   };
+
+  // useEffect(() => {
+  //   // if (logged) return <Redirect to="/home" />;
+  //   if (logged) {
+  //     history.push("/home");
+  //   }
+  //   console.log("logged is ", logged);
+  // }, [logged]);
 
   return (
     <form onSubmit={handleSubmit}>
