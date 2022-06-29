@@ -49,24 +49,25 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="master-nav">
-      {sessionUser ? (
-        <div className="home-nav">
-          <div className="hometag">
-            <NavLink className="home" exact to="/home">
-              Home
-            </NavLink>
+    <>
+      <div className="master-nav">
+        {sessionUser ? (
+          <div className="home-nav">
+            <div className="hometag">
+              <NavLink className="home" exact to="/home">
+                Home
+              </NavLink>
+            </div>
+            <img
+              className="home-icon"
+              alt="logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWeFlxsBhCE3odDMncn4NkRZ-nKrvr7_tF6kYHLSM0uRS1vsohUks1J9ES4cakLYvRpo&usqp=CAU"
+            ></img>
           </div>
-          <img
-            className="home-icon"
-            alt="logo"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWeFlxsBhCE3odDMncn4NkRZ-nKrvr7_tF6kYHLSM0uRS1vsohUks1J9ES4cakLYvRpo&usqp=CAU"
-          ></img>
-        </div>
-      ) : // (
-      null}
-      {isLoaded && sessionLinks}
-    </div>
+        ) : null}
+      </div>
+      <div>{isLoaded && sessionLinks}</div>
+    </>
   );
 }
 
