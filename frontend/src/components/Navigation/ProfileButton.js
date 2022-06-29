@@ -37,20 +37,25 @@ function ProfileButton({ user }) {
     <>
       <button className="profile-button" onClick={openMenu}>
         <div>
-          <i className="fas fa-user-alt" />
+          <i className="fas fa-user-circle fa-3x" />
         </div>
       </button>
       {showMenu && (
         <div className="all-list">
-          <ul>
-            <li className="list">{user.username}</li>
-            <li className="list">{user.email}</li>
-            <li className="list">
-              <button className="logout-button" onClick={logout}>
-                Log Out
-              </button>
-            </li>
-          </ul>
+          <div className="list">
+            <i className="fas fa-user" />
+            {user.username}
+          </div>
+          <div className="list">
+            <i className="fas fa-envelope" />
+            {user.email}
+          </div>
+
+          <div className="list">
+            <button className="logout-button" onClick={logout}>
+              Log Out
+            </button>
+          </div>
         </div>
       )}
     </>

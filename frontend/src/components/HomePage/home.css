@@ -12,15 +12,25 @@ body {
   height: 30px;
   width: 50px;
   position: absolute;
-  left: 90%;
-  top: 4%;
+  left: 89%;
+  top: 6%;
+  border: none;
+  background-color: white;
 }
 
 .all-list {
   color: black;
+  height: 100px;
   position: relative;
   left: 89%;
   top: 10%;
+  border: 1px solid gray;
+  border-radius: 30px;
+  padding: 8px;
+}
+
+.list {
+  margin: 10px;
 }
 .home-icon {
   height: 50px;
