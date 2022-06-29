@@ -25,21 +25,23 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <div className="title">Delp!</div>
-        <img
-          className="icon"
-          src="https://cdn-icons-png.flaticon.com/512/174/174882.png"
-          alt="Delp Icon"
-        ></img>
-        <nav className="nav">
-          <LoginFormModal />
-          <button className="signup" onClick={handleSignup}>
-            Sign Up
-          </button>
-          <button className="Demo" onClick={handleDemo}>
-            Demo
-          </button>
-        </nav>
+        <div className="slash-container">
+          <div className="title">Delp!</div>
+          <img
+            className="icon"
+            src="https://cdn-icons-png.flaticon.com/512/174/174882.png"
+            alt="Delp Icon"
+          ></img>
+          <nav className="nav">
+            <LoginFormModal />
+            <button className="signup" onClick={handleSignup}>
+              Sign Up
+            </button>
+            <button className="Demo" onClick={handleDemo}>
+              Demo
+            </button>
+          </nav>
+        </div>
       </>
     );
   }
@@ -51,10 +53,6 @@ function Navigation({ isLoaded }) {
           Home
         </NavLink>
       ) : // (
-      //   <NavLink className="nav" exact to="/">
-      //     Home
-      //   </NavLink>
-      // )
       null}
       {isLoaded && sessionLinks}
     </div>

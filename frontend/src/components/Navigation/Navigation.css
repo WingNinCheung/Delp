@@ -1,8 +1,12 @@
-body {
+.slash-container {
   background: url("https://images.squarespace-cdn.com/content/v1/5a06aac2cf81e04b144237a5/1532940426404-X69ZZ4A29BFRROW19A8M/IMG_0615.jpg");
   background-size: cover;
   animation: slide 60s linear;
   font-family: Helvetica Neue, sans-serif;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .nav {
   background-color: transparent;
