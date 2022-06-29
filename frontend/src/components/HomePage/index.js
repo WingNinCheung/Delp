@@ -15,11 +15,6 @@ export const Home = () => {
 
   return (
     <>
-      <div className="add-business">
-        <button onClick={() => history.push("/add-my-business")}>
-          Add My Business
-        </button>
-      </div>
       <div className="business-list">
         {allBusinesses.map((business) => (
           <NavLink key={`${business.id}`} to={`/business/${business.id}`}>

@@ -12,26 +12,36 @@ body {
   height: 30px;
   width: 50px;
   position: absolute;
-  left: 89%;
+  left: 85%;
   top: 6%;
   border: none;
   background-color: white;
+  cursor: pointer;
 }
 
 .all-list {
   color: black;
-  height: 100px;
-  position: relative;
+  height: 50px;
+  width: 150px;
+  position: absolute;
   left: 89%;
-  top: 10%;
+  top: 3%;
   border: 1px solid gray;
   border-radius: 30px;
   padding: 8px;
 }
-
+.fas {
+  padding-right: 10px;
+}
 .list {
   margin: 10px;
 }
+.logout-button {
+  color: black;
+  border-radius: 7px;
+  font-size: 18px;
+}
+
 .home-icon {
   height: 50px;
   width: 60px;
@@ -39,6 +49,13 @@ body {
   position: relative;
   top: 60px;
   left: 50px;
+}
+
+.yelp-icon {
+  height: 50px;
+  position: relative;
+  top: 60px;
+  left: 60px;
 }
 
 .hometag {
@@ -51,12 +68,31 @@ body {
   font-size: 20px;
 }
 
-.home {
-  text-decoration: none;
+.add-business {
+  width: auto;
+  color: black;
+  position: absolute;
+  left: 30%;
+  top: 8%;
   font-size: 20px;
 }
 
+.add-button {
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.home {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
 .hometag:hover,
-.home:hover {
+.home:hover,
+.add-button:hover {
   font-size: 22px;
 }
