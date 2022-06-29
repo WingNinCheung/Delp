@@ -47,11 +47,18 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div>
+    <div className="h">
       {sessionUser ? (
-        <NavLink className="nav" exact to="/home">
-          Home
-        </NavLink>
+        <li className="home-nav">
+          <NavLink className="home-tag" exact to="/home">
+            Home
+          </NavLink>
+          <img
+            className="home-icon"
+            alt="logo"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWeFlxsBhCE3odDMncn4NkRZ-nKrvr7_tF6kYHLSM0uRS1vsohUks1J9ES4cakLYvRpo&usqp=CAU"
+          ></img>
+        </li>
       ) : // (
       null}
       {isLoaded && sessionLinks}

@@ -1,8 +1,52 @@
-.nav {
-  background-color: beige;
-  color: white;
+body {
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.home-nav {
+  background-color: white;
+  border-bottom: 2px solid gray;
+  color: black;
   display: flex;
-  justify-content: flex-end;
-  height: 10%;
+  justify-content: flex-start;
+  /* background-color: lightcoral; */
+
+  height: 150px;
+
+  /* background-image: url("https://eu-assets.simpleview-europe.com/essex/imageresizer/?image=%2Fdmsimgs%2FHERO-IMAGE_291947069.jpg&action=ProductDetailImage");
+  background-size: cover; */
   /* margin: 20px; */
+}
+
+.profile {
+  height: 30px;
+  width: 50px;
+  position: absolute;
+  left: 90%;
+  top: 4%;
+}
+
+.home-icon {
+  height: 50px;
+  width: 60px;
+  margin-right: 20px;
+  position: relative;
+  top: 60px;
+  left: 50px;
+}
+
+.home-tag {
+  height: 20px;
+  width: auto;
+  color: black;
+  position: relative;
+  left: 20%;
+  top: 50%;
+  text-decoration: none;
+  font-size: 20px;
+  /* background-color: aqua; */
+}
+
+.home-tag:hover {
+  border-bottom: 2px solid red;
+  font-size: 22px;
 }
