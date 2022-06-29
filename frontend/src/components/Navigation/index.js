@@ -47,7 +47,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="h">
+    <div className="">
       {sessionUser ? (
         <li className="home-nav">
           <NavLink className="home-tag" exact to="/home">
