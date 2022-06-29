@@ -2,51 +2,173 @@ body {
   font-family: Helvetica Neue, sans-serif;
 }
 
-.home-nav {
-  background-color: white;
-  border-bottom: 2px solid gray;
-  color: black;
+.master-nav {
   display: flex;
-  justify-content: flex-start;
-  /* background-color: lightcoral; */
-
+  border-bottom: 2px solid rgb(223, 222, 222);
   height: 150px;
-
-  /* background-image: url("https://eu-assets.simpleview-europe.com/essex/imageresizer/?image=%2Fdmsimgs%2FHERO-IMAGE_291947069.jpg&action=ProductDetailImage");
-  background-size: cover; */
-  /* margin: 20px; */
 }
 
-.profile {
+.profile-button {
   height: 30px;
   width: 50px;
   position: absolute;
-  left: 90%;
-  top: 4%;
+  left: 85%;
+  top: 6%;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.all-list {
+  color: black;
+  height: 50px;
+  width: 150px;
+  position: absolute;
+  left: 89%;
+  top: 3%;
+  border: 1px solid gray;
+  border-radius: 30px;
+  padding: 8px;
+}
+.fas {
+  padding-right: 10px;
+}
+.list {
+  margin: 10px;
+}
+.logout-button {
+  color: black;
+  border-radius: 7px;
+  font-size: 18px;
 }
 
 .home-icon {
   height: 50px;
   width: 60px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   position: relative;
   top: 60px;
   left: 50px;
 }
 
-.home-tag {
-  height: 20px;
-  width: auto;
-  color: black;
+.yelp-icon {
+  height: 50px;
   position: relative;
-  left: 20%;
-  top: 50%;
-  text-decoration: none;
-  font-size: 20px;
-  /* background-color: aqua; */
+  top: 60px;
+  left: 60px;
 }
 
-.home-tag:hover {
-  border-bottom: 2px solid red;
+.hometag {
+  width: auto;
+  color: black;
+  position: absolute;
+  left: 15%;
+  top: 8%;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.add-business {
+  width: auto;
+  color: black;
+  position: absolute;
+  left: 30%;
+  top: 8%;
+  font-size: 20px;
+}
+
+.add-button {
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.home {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.hometag:hover,
+.home:hover,
+.add-button:hover {
   font-size: 22px;
+}
+
+/*
+For business list area
+*/
+
+.intro {
+  font-size: 24px;
+  font-family: Helvetica Neue, sans-serif;
+  margin-left: 45px;
+}
+
+.business-list {
+  margin-top: 80px;
+  background-color: white;
+  /* border: 2px solid black; */
+}
+
+.business-card {
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 800px;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.word-session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-area {
+  background-color: black;
+  color: black;
+  text-decoration: none;
+}
+
+.bus-title {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  /* margin: 10px; */
+  /* margin: auto; */
+  /* margin-top: -120px; */
+  /* margin-left: 10px; */
+  position: relative;
+  bottom: 90px;
+  text-align: center;
+}
+
+.bus-des {
+  color: white;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 3px;
+  /* background-color: rgb(227, 227, 227); */
+  background-color: rgb(244, 57, 57);
+  font-family: "Open Sans";
+  font-size: 16px;
+  line-height: 12px;
+  font-weight: bold;
+  position: relative;
+  bottom: 70px;
+  text-align: left;
+  /* margin-left: -150px; */
+
+  width: auto;
+}
+
+.food-img {
+  height: 300px;
+  width: 400px;
 }

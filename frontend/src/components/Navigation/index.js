@@ -49,22 +49,38 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="">
-      {sessionUser ? (
-        <li className="home-nav">
-          <NavLink className="home-tag" exact to="/home">
-            Home
-          </NavLink>
-          <img
-            className="home-icon"
-            alt="logo"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWeFlxsBhCE3odDMncn4NkRZ-nKrvr7_tF6kYHLSM0uRS1vsohUks1J9ES4cakLYvRpo&usqp=CAU"
-          ></img>
-        </li>
-      ) : // (
-      null}
-      {isLoaded && sessionLinks}
-    </div>
+    <>
+      <div className="master-nav">
+        {sessionUser ? (
+          <div className="home-nav">
+            <div className="hometag">
+              <NavLink className="home" exact to="/home">
+                Home
+              </NavLink>
+            </div>
+            <img
+              className="home-icon"
+              alt="logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWeFlxsBhCE3odDMncn4NkRZ-nKrvr7_tF6kYHLSM0uRS1vsohUks1J9ES4cakLYvRpo&usqp=CAU"
+            ></img>
+            <img
+              className="yelp-icon"
+              src="https://cdn-icons-png.flaticon.com/512/174/174882.png"
+              alt="Delp Icon"
+            ></img>
+            <div className="add-business">
+              <button
+                className="add-button"
+                onClick={() => history.push("/add-my-business")}
+              >
+                Add My Business
+              </button>
+            </div>
+          </div>
+        ) : null}
+      </div>
+      <div>{isLoaded && sessionLinks}</div>
+    </>
   );
 }
 
