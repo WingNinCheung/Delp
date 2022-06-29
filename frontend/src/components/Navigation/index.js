@@ -49,9 +49,9 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="">
+    <div className="master-nav">
       {sessionUser ? (
-        <li className="home-nav">
+        <div className="home-nav">
           <div className="hometag">
             <NavLink className="home" exact to="/home">
               Home
@@ -62,7 +62,7 @@ function Navigation({ isLoaded }) {
             alt="logo"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGWeFlxsBhCE3odDMncn4NkRZ-nKrvr7_tF6kYHLSM0uRS1vsohUks1J9ES4cakLYvRpo&usqp=CAU"
           ></img>
-        </li>
+        </div>
       ) : // (
       null}
       {isLoaded && sessionLinks}

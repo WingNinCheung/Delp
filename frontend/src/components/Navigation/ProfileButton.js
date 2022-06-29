@@ -35,21 +35,23 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button className="profile" onClick={openMenu}>
+      <button className="profile-button" onClick={openMenu}>
         <div>
           <i className="fas fa-user-alt" />
         </div>
       </button>
       {showMenu && (
-        <ul className="profile">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button className="logout-button" onClick={logout}>
-              Log Out
-            </button>
-          </li>
-        </ul>
+        <div className="all-list">
+          <ul>
+            <li className="list">{user.username}</li>
+            <li className="list">{user.email}</li>
+            <li className="list">
+              <button className="logout-button" onClick={logout}>
+                Log Out
+              </button>
+            </li>
+          </ul>
+        </div>
       )}
     </>
   );
