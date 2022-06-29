@@ -1,0 +1,21 @@
+.spec-title {
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  top: 250px;
+  left: 100px;
+}
+
+.spec-des {
+  font-size: 8px;
+  color: white;
+  position: relative;
+  top: 230px;
+  left: 100px;
+}
+
+.banner-session {
+  margin-top: -45px;
+  background-size: contain;
+}

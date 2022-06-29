@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBusinesses } from "../../store/business";
 import Reviews from "../Reviews";
+import "./detail.css";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
@@ -36,13 +37,18 @@ export const BusinessDetail = () => {
         <div
           className="banner-session"
           style={{
-            backgroundImage: `url(https://as1.ftcdn.net/v2/jpg/04/35/10/88/1000_F_435108880_mRcvr6sG48Ot7PPBwbK6WNmz9xaZdKtG.jpg)`,
+            backgroundImage: `url(https://t4.ftcdn.net/jpg/02/89/80/03/360_F_289800335_l89vweOGANYIhKuVHRgpGh5QRwKQMsQx.jpg)`,
             height: "50%",
             width: "100%",
-            backgroundSize: "cover",
+            backgroundSize: "",
           }}
         >
-          <h1 style={{ color: "white" }}>{thisBusiness.title}</h1>
+          <div className="spec-title">
+            <h1>{thisBusiness.title}</h1>
+          </div>
+          <div className="spec-des">
+            <h1>{thisBusiness.description}, Jananese</h1>
+          </div>
         </div>
         <div className="detail-container">
           <div className="photo">

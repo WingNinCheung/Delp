@@ -6,6 +6,7 @@ body {
   display: flex;
   border-bottom: 2px solid rgb(223, 222, 222);
   height: 150px;
+  margin-bottom: 0px;
 }
 
 .profile-button {
@@ -105,6 +106,7 @@ For business list area
   font-size: 24px;
   font-family: Helvetica Neue, sans-serif;
   margin-left: 45px;
+  margin-top: auto;
 }
 
 .business-list {
