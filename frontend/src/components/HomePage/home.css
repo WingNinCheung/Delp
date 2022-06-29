@@ -4,7 +4,7 @@ body {
 
 .master-nav {
   display: flex;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid rgb(223, 222, 222);
   height: 150px;
 }
 
@@ -95,4 +95,80 @@ body {
 .home:hover,
 .add-button:hover {
   font-size: 22px;
+}
+
+/*
+For business list area
+*/
+
+.intro {
+  font-size: 24px;
+  font-family: Helvetica Neue, sans-serif;
+  margin-left: 45px;
+}
+
+.business-list {
+  margin-top: 80px;
+  background-color: white;
+  /* border: 2px solid black; */
+}
+
+.business-card {
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 800px;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.word-session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-area {
+  background-color: black;
+  color: black;
+  text-decoration: none;
+}
+
+.bus-title {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  /* margin: 10px; */
+  /* margin: auto; */
+  /* margin-top: -120px; */
+  /* margin-left: 10px; */
+  position: relative;
+  bottom: 90px;
+  text-align: center;
+}
+
+.bus-des {
+  color: white;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 3px;
+  /* background-color: rgb(227, 227, 227); */
+  background-color: rgb(244, 57, 57);
+  font-family: "Open Sans";
+  font-size: 16px;
+  line-height: 12px;
+  font-weight: bold;
+  position: relative;
+  bottom: 70px;
+  text-align: left;
+  /* margin-left: -150px; */
+
+  width: auto;
+}
+
+.food-img {
+  height: 300px;
+  width: 400px;
 }
