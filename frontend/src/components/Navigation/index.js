@@ -52,9 +52,11 @@ function Navigation({ isLoaded }) {
     <div className="">
       {sessionUser ? (
         <li className="home-nav">
-          <NavLink className="home-tag" exact to="/home">
-            Home
-          </NavLink>
+          <div className="hometag">
+            <NavLink className="home" exact to="/home">
+              Home
+            </NavLink>
+          </div>
           <img
             className="home-icon"
             alt="logo"

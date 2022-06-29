@@ -9,12 +9,9 @@ body {
   display: flex;
   justify-content: flex-start;
   /* background-color: lightcoral; */
-
   height: 150px;
-
   /* background-image: url("https://eu-assets.simpleview-europe.com/essex/imageresizer/?image=%2Fdmsimgs%2FHERO-IMAGE_291947069.jpg&action=ProductDetailImage");
   background-size: cover; */
-  /* margin: 20px; */
 }
 
 .profile {
@@ -34,19 +31,24 @@ body {
   left: 50px;
 }
 
-.home-tag {
-  height: 20px;
+.hometag {
+  /* height: 100px; */
   width: auto;
   color: black;
-  position: relative;
-  left: 20%;
-  top: 50%;
+  position: absolute;
+  left: 15%;
+  top: 8%;
   text-decoration: none;
   font-size: 20px;
   /* background-color: aqua; */
 }
 
-.home-tag:hover {
-  border-bottom: 2px solid red;
+.home {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.hometag:hover,
+.home:hover {
   font-size: 22px;
 }
