@@ -37,7 +37,7 @@ function Navigation({ isLoaded }) {
             <button className="signup" onClick={handleSignup}>
               Sign Up
             </button>
-            <button className="Demo" onClick={handleDemo}>
+            <button className="demo" onClick={handleDemo}>
               Demo
             </button>
           </nav>
