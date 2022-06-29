@@ -1,4 +1,8 @@
-body {
-  background-color: black;
-  /* color: white; */
+.nav {
+  background-color: beige;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  height: 10%;
+  /* margin: 20px; */
 }
