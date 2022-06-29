@@ -51,33 +51,36 @@ export const BusinessDetail = () => {
           </div>
         </div>
         <div className="detail-container">
+          <h2 className="photo-session">Photo</h2>
           <div className="photo">
-            <h2>Photo</h2>
             <img
+              className="image"
               src={thisBusiness.imageUrl}
               alt={`${thisBusiness.title}`}
             ></img>
-          </div>
-          <div className="info-detail">
-            <h2>Info</h2>
-            <div className="edit-button">
-              {isAuthorizedOwner ? (
-                <button onClick={handleEdit}>Edit Info</button>
-              ) : null}
-            </div>
-            <div className="delete-button">
-              {isAuthorizedOwner ? (
-                <button onClick={handleDelete}>Delete Business</button>
-              ) : null}
-            </div>
-            <div className="description">
-              <h3>Description</h3>
-              {thisBusiness.description}
-            </div>
-            <div className="address">
-              <h3>Address</h3>
-              {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
-              {thisBusiness.zipCode}
+
+            <div className="info-detail">
+              <h2 className="info-session">Info</h2>
+              <div className="edit-button">
+                {isAuthorizedOwner ? (
+                  <button onClick={handleEdit}>Edit Info</button>
+                ) : null}
+              </div>
+              <div className="delete-button">
+                {isAuthorizedOwner ? (
+                  <button onClick={handleDelete}>Delete Business</button>
+                ) : null}
+              </div>
+              <div className="description">
+                <h3>Description</h3>
+                {thisBusiness.description}
+              </div>
+              <div className="address">
+                <h3>Address</h3>
+                <i className="fas fa-map-marker-alt" />
+                {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
+                {thisBusiness.zipCode}
+              </div>
             </div>
           </div>
           <div className="review">

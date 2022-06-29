@@ -19,3 +19,37 @@
   margin-top: -45px;
   background-size: contain;
 }
+
+.photo-session {
+  font-size: 35px;
+  position: relative;
+  left: 550px;
+}
+
+.photo {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.image {
+  height: 400px;
+  border-radius: 50px;
+}
+
+.info-session {
+  font-size: 35px;
+  position: relative;
+  bottom: 120px;
+  margin-bottom: 70px;
+}
+
+.description {
+  position: relative;
+  bottom: 120px;
+}
+
+.address {
+  position: relative;
+  bottom: 120px;
+}
