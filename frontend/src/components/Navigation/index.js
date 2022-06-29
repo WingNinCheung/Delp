@@ -34,9 +34,11 @@ function Navigation({ isLoaded }) {
           ></img>
           <nav className="nav">
             <LoginFormModal />
+
             <button className="signup" onClick={handleSignup}>
               Sign Up
             </button>
+
             <button className="demo" onClick={handleDemo}>
               Demo
             </button>
