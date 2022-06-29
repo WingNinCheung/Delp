@@ -68,9 +68,7 @@ router.delete(
   "/:id",
   asyncHandler(async (req, res) => {
     const id = req.params.id;
-    console.log("id is ", id);
     const business = await Business.findByPk(id);
-    console.log("The data!!!", business);
 
     const reviews = await Review.findAll({
       where: { businessId: business.id },
