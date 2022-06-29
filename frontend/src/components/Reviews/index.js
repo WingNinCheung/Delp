@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import CreateReview from "./createReviewForm";
 import { deleteReview } from "../../store/review";
+import "./review.css";
 
 const Reviews = () => {
   // business id
@@ -33,21 +34,16 @@ const Reviews = () => {
       <div>
         {reviews.map((review) => (
           <div className="review">
-            <h3>{review.User?.username}</h3>
+            <div className="user-name">
+              <i className="fas fa-user-alt fa-1x" />
+              <h3 className="name">{review.User?.username}</h3>
+            </div>
             <div key={review.createdAt}>{review?.createdAt}</div>
             <div key={review.rating}>Rating:{review?.rating}</div>
             <div key={review.reviewBody}>{review?.reviewBody}</div>
             {loggedUserId === review.userId ? (
-              // <button
-              //   className="delete-review-button"
-              //   value={review.id}
-              //   onClick={(e) => {
-              //     setReviewId(e.target.value);
-              //     handleDelete();
-              //   }}
               <button
                 className="delete-review-button"
-                // value={review.id}
                 onClick={() => handleDelete(review.id)}
               >
                 Delete

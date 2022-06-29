@@ -47,7 +47,7 @@ export const BusinessDetail = () => {
             <h1>{thisBusiness.title}</h1>
           </div>
           <div className="spec-des">
-            <h1>{thisBusiness.description}, Jananese</h1>
+            <h1>{thisBusiness.description}</h1>
           </div>
         </div>
         <div className="detail-container">
@@ -84,7 +84,7 @@ export const BusinessDetail = () => {
             </div>
           </div>
           <div className="review">
-            <h2>Reviews</h2>
+            <h2 className="recommend">Recommended Reviews</h2>
             <Reviews />
           </div>
         </div>

@@ -30,6 +30,8 @@
   margin-top: 50px;
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgb(235, 230, 230);
 }
 
 .image {
@@ -52,4 +54,9 @@
 .address {
   position: relative;
   bottom: 120px;
+}
+
+.recommend {
+  margin-left: 20px;
+  /* color: aqua; */
 }

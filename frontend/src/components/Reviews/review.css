@@ -1,0 +1,20 @@
+.user-name {
+  display: flex;
+  justify-content: flex-start;
+  /* width: 200px; */
+  /* height: 70px; */
+  padding: 20px;
+  margin-bottom: -30px;
+}
+
+.fas.fa-user-alt {
+  /* border: 2px solid black; */
+  /* border-radius: 80%; */
+  width: 15px;
+  height: 30px;
+}
+
+.name {
+  position: relative;
+  bottom: 20px;
+}
