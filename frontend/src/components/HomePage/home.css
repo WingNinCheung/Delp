@@ -9,7 +9,7 @@ body {
 }
 
 .profile-button {
-  height: 30px;
+  height: auto;
   width: 50px;
   position: absolute;
   left: 85%;
@@ -21,8 +21,8 @@ body {
 
 .all-list {
   color: black;
-  height: 50px;
-  width: 150px;
+  height: 70px;
+  width: 180px;
   position: absolute;
   left: 89%;
   top: 3%;
