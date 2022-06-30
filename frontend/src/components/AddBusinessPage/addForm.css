@@ -1,0 +1,84 @@
+.add-container {
+  margin: 20px 700px;
+  color: black;
+  width: 20%;
+}
+
+.add-business-form {
+  border: 1px solid rgb(224, 206, 206);
+  border-radius: 24px;
+  width: 600px;
+  height: 600px;
+  display: block;
+  line-height: 19px;
+  padding: 0.4em 0.8em;
+}
+
+.addBusiness {
+  font-size: 30px;
+  text-align: center;
+}
+
+.atitle {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.ainput {
+  display: block;
+  position: relative;
+  left: 230px;
+}
+.errors {
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.new-create {
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  left: 200px;
+  margin: 10px;
+}
+
+.new-cancel {
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  left: 190px;
+  margin: 10px;
+}
+
+.new-create:hover,
+.new-cancel:hover {
+  background-color: transparent;
+  color: black;
+}
+
+@media screen and (max-width: 850px) {
+  .add-business-form,
+  .add-container {
+    margin: auto;
+    text-align: center;
+    min-width: 100%;
+  }
+
+  .atitle,
+  .new-cancel,
+  .new-create,
+  .ainput,
+  .errors {
+    margin: auto;
+    min-width: 100%;
+  }
+}
