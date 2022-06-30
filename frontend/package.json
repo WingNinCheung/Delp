@@ -1,6 +1,12 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
   "private": true,
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
@@ -28,11 +34,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -42,5 +44,6 @@
   "devDependencies": {
     "redux-logger": "^3.0.6"
   },
+
   "proxy": "http://localhost:2000"
 }

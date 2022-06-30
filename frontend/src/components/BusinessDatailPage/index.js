@@ -87,7 +87,10 @@ export const BusinessDetail = () => {
                 {thisBusiness.zipCode}
               </div>
               <div className="map-container">
-                <Maps API_KEYS={process.env.REACT_APP_GOOGLE_KEYS} />
+                <Maps
+                  API_KEYS={process.env.REACT_APP_GOOGLE_KEYS}
+                  businessId={id}
+                />
               </div>
             </div>
           </div>
