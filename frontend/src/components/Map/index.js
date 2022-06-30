@@ -4,8 +4,9 @@ import { BusinessDetail } from "../BusinessDatailPage";
 import "./map.css";
 
 export const Maps = () => {
+  console.log(process.env.REACT_APP_GOOGLE_KEYS);
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEYS,
   });
 
   if (!isLoaded) return <div>Loading...</div>;
