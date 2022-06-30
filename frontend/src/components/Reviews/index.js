@@ -40,37 +40,43 @@ const Reviews = () => {
               <i className="fas fa-user-alt fa-1x" />
               <h3 className="name">{review.User?.username}</h3>
             </div>
-            {review.rating === 1 ? (
-              <i className="fas fa-star" />
-            ) : review.rating === 2 ? (
-              <div>
+            <div className="stardate">
+              {review.rating === 1 ? (
                 <i className="fas fa-star" />
-                <i className="fas fa-star" />
-              </div>
-            ) : review.rating === 3 ? (
-              <div>
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-              </div>
-            ) : review.rating === 4 ? (
-              <div>
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-              </div>
-            ) : (
-              <div>
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-                <i className="fas fa-star" />
-              </div>
-            )}
-            <div key={review.createdAt}>{review?.createdAt}</div>
-            <div key={review.reviewBody}>{review?.reviewBody}</div>
+              ) : review.rating === 2 ? (
+                <div>
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                </div>
+              ) : review.rating === 3 ? (
+                <div>
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                </div>
+              ) : review.rating === 4 ? (
+                <div>
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                </div>
+              ) : (
+                <div>
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                  <i className="fas fa-star" />
+                </div>
+              )}
+            </div>
+            <div className="date" key={review.createdAt}>
+              {review?.createdAt}
+            </div>
+            <div className="reviewbody" key={review.reviewBody}>
+              {review?.reviewBody}
+            </div>
             {loggedUserId === review.userId ? (
               <button
                 className="delete-review-button"
@@ -83,7 +89,7 @@ const Reviews = () => {
         ))}
       </div>
       <div className="create-review-container">
-        <h3>Write a review!</h3>
+        <h2 className="review-div">Write a review!</h2>
         <CreateReview />
       </div>
     </div>
