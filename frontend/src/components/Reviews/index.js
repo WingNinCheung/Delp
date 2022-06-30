@@ -14,6 +14,8 @@ const Reviews = () => {
   const reviews = useSelector((state) => Object.values(state.review));
   const loggedUserId = useSelector((state) => state.session.user?.id);
 
+  // console.log(Array.isArray(reviews));
+
   // format the date into Mon Jan 1 2022
   reviews.forEach((review) => {
     let date = new Date(review.createdAt);
@@ -32,14 +34,42 @@ const Reviews = () => {
   return (
     <div className="review-container">
       <div>
-        {reviews.map((review) => (
+        {reviews.map((review, i) => (
           <div className="review">
             <div className="user-name">
               <i className="fas fa-user-alt fa-1x" />
               <h3 className="name">{review.User?.username}</h3>
             </div>
+            {review.rating === 1 ? (
+              <i className="fas fa-star" />
+            ) : review.rating === 2 ? (
+              <div>
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+            ) : review.rating === 3 ? (
+              <div>
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+            ) : review.rating === 4 ? (
+              <div>
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+            ) : (
+              <div>
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+                <i className="fas fa-star" />
+              </div>
+            )}
             <div key={review.createdAt}>{review?.createdAt}</div>
-            <div key={review.rating}>Rating:{review?.rating}</div>
             <div key={review.reviewBody}>{review?.reviewBody}</div>
             {loggedUserId === review.userId ? (
               <button
