@@ -1,8 +1,8 @@
-// import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addReview, getReviews } from "../../store/review";
+import "./review.css";
 
 const CreateReview = () => {
   const [rating, setRating] = useState(1);
@@ -37,8 +37,9 @@ const CreateReview = () => {
 
   return (
     <form className="create-review" onSubmit={handleSubmit}>
-      <label>Select your rating</label>
+      <label className="rate-label">Rate the business</label>
       <select
+        className="rating-select"
         name="rating"
         value={rating}
         onChange={(e) => setRating(e.target.value)}
