@@ -61,14 +61,18 @@ export const BusinessDetail = () => {
 
             <div className="info-detail">
               <h2 className="info-session">Info</h2>
-              <div className="edit-button">
+              <div className="edit">
                 {isAuthorizedOwner ? (
-                  <button onClick={handleEdit}>Edit Info</button>
+                  <button className="edit-button" onClick={handleEdit}>
+                    Edit Info
+                  </button>
                 ) : null}
               </div>
-              <div className="delete-button">
+              <div className="delete">
                 {isAuthorizedOwner ? (
-                  <button onClick={handleDelete}>Delete Business</button>
+                  <button className="delete-button" onClick={handleDelete}>
+                    Delete Business
+                  </button>
                 ) : null}
               </div>
               <div className="description">
