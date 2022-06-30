@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBusinesses } from "../../store/business";
 import Reviews from "../Reviews";
+import { Maps } from "../Map";
 import "./detail.css";
 
 export const BusinessDetail = () => {
@@ -84,6 +85,9 @@ export const BusinessDetail = () => {
                 <i className="fas fa-map-marker-alt" />
                 {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
                 {thisBusiness.zipCode}
+              </div>
+              <div className="map-container">
+                <Maps />
               </div>
             </div>
           </div>
