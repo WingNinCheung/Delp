@@ -3,26 +3,27 @@ import process from "process";
 import { BusinessDetail } from "../BusinessDatailPage";
 import "./map.css";
 
-export const Maps = () => {
-  console.log(process.env.REACT_APP_GOOGLE_KEYS);
+export const Maps = ({ API_KEYS }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEYS,
+    googleMapsApiKey: API_KEYS,
   });
 
   if (!isLoaded) return <div>Loading...</div>;
   return (
     <div>
-      <Map />
+      <MapCanvas />
     </div>
   );
 };
 
-function Map() {
+function MapCanvas() {
   return (
-    <GoogleMap
-      zoom={10}
-      center={{ lat: 44, lng: -80 }}
-      mapContainerClassName="map-container"
-    ></GoogleMap>
+    <>
+      <GoogleMap
+        zoom={10}
+        center={{ lat: 44, lng: -80 }}
+        mapContainerClassName="map-container"
+      ></GoogleMap>
+    </>
   );
 }
