@@ -6,6 +6,7 @@ body {
   display: flex;
   border-bottom: 2px solid rgb(223, 222, 222);
   height: 150px;
+  margin-bottom: 0px;
 }
 
 .profile-button {
@@ -21,20 +22,21 @@ body {
 
 .all-list {
   color: black;
-  height: 70px;
-  width: 180px;
+  height: auto;
+  width: auto;
   position: absolute;
   left: 89%;
   top: 3%;
   border: 1px solid gray;
   border-radius: 30px;
-  padding: 8px;
+  margin: 5px;
+  padding: 5px;
 }
 .fas {
   padding-right: 10px;
 }
 .list {
-  margin: 10px;
+  margin: 5px;
 }
 .logout-button {
   color: black;
@@ -105,6 +107,7 @@ For business list area
   font-size: 24px;
   font-family: Helvetica Neue, sans-serif;
   margin-left: 45px;
+  margin-top: auto;
 }
 
 .business-list {

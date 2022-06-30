@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getBusinesses } from "../../store/business";
 import Reviews from "../Reviews";
+import "./detail.css";
 
 export const BusinessDetail = () => {
   const { id } = useParams();
@@ -36,46 +37,58 @@ export const BusinessDetail = () => {
         <div
           className="banner-session"
           style={{
-            backgroundImage: `url(https://as1.ftcdn.net/v2/jpg/04/35/10/88/1000_F_435108880_mRcvr6sG48Ot7PPBwbK6WNmz9xaZdKtG.jpg)`,
+            backgroundImage: `url(https://t4.ftcdn.net/jpg/02/89/80/03/360_F_289800335_l89vweOGANYIhKuVHRgpGh5QRwKQMsQx.jpg)`,
             height: "50%",
             width: "100%",
-            backgroundSize: "cover",
+            backgroundSize: "",
           }}
         >
-          <h1 style={{ color: "white" }}>{thisBusiness.title}</h1>
+          <div className="spec-title">
+            <h1>{thisBusiness.title}</h1>
+          </div>
+          <div className="spec-des">
+            <h1>{thisBusiness.description}</h1>
+          </div>
         </div>
         <div className="detail-container">
+          <h2 className="photo-session">Photo</h2>
           <div className="photo">
-            <h2>Photo</h2>
             <img
+              className="image"
               src={thisBusiness.imageUrl}
               alt={`${thisBusiness.title}`}
             ></img>
-          </div>
-          <div className="info-detail">
-            <h2>Info</h2>
-            <div className="edit-button">
-              {isAuthorizedOwner ? (
-                <button onClick={handleEdit}>Edit Info</button>
-              ) : null}
-            </div>
-            <div className="delete-button">
-              {isAuthorizedOwner ? (
-                <button onClick={handleDelete}>Delete Business</button>
-              ) : null}
-            </div>
-            <div className="description">
-              <h3>Description</h3>
-              {thisBusiness.description}
-            </div>
-            <div className="address">
-              <h3>Address</h3>
-              {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
-              {thisBusiness.zipCode}
+
+            <div className="info-detail">
+              <h2 className="info-session">Info</h2>
+              <div className="edit">
+                {isAuthorizedOwner ? (
+                  <button className="edit-button" onClick={handleEdit}>
+                    Edit Info
+                  </button>
+                ) : null}
+              </div>
+              <div className="delete">
+                {isAuthorizedOwner ? (
+                  <button className="delete-button" onClick={handleDelete}>
+                    Delete Business
+                  </button>
+                ) : null}
+              </div>
+              <div className="description">
+                <h3>Description</h3>
+                {thisBusiness.description}
+              </div>
+              <div className="address">
+                <h3>Address</h3>
+                <i className="fas fa-map-marker-alt" />
+                {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
+                {thisBusiness.zipCode}
+              </div>
             </div>
           </div>
           <div className="review">
-            <h2>Reviews</h2>
+            <h2 className="recommend">Recommended Reviews</h2>
             <Reviews />
           </div>
         </div>
