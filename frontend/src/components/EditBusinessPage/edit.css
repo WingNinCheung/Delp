@@ -1,0 +1,22 @@
+.new-save {
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  left: 220px;
+  margin: 10px;
+  width: 60px;
+}
+
+.edit-cancel {
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  left: 230px;
+  margin: 10px;
+}
