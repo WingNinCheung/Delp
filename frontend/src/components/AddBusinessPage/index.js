@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBusiness } from "../../store/business";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./addForm.css";
 
 export const AddBusiness = () => {
   const dispatch = useDispatch();
@@ -70,75 +71,88 @@ export const AddBusiness = () => {
   }, [title, imageUrl, address, city, state, zipCode]);
 
   return (
-    <form className="add-business-form" onSubmit={handleSubmit}>
-      <h2>Add Your Business!</h2>
-      <ul className="errors">
-        {validationErrors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Title: {}
-        <input
-          placeholder="Name of your business"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        Image Url: {}
-        <input
-          placeholder="Image link of your business"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        Description: {}
-        <input
-          placeholder="Business description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        Address: {}
-        <input
-          placeholder="Street number & name"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        City: {}
-        <input
-          placeholder="City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        State: {}
-        <input
-          placeholder="State"
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-        ></input>
-      </label>
-      <label>
-        Zip Code: {}
-        <input
-          placeholder="Zip code"
-          value={zipCode}
-          onChange={(e) => setZipCode(e.target.value)}
-        ></input>
-      </label>
-      <button type="submit" disabled={validationErrors.length > 0}>
-        Create new business!
-      </button>
-      <button type="button" onClick={handleCancel}>
-        Cancel
-      </button>
-    </form>
+    <div className="add-container">
+      <form className="add-business-form" onSubmit={handleSubmit}>
+        <h2 className="addBusiness">Add Your Business!</h2>
+        <ul className="errors">
+          {validationErrors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+        <label className="atitle">
+          Title: {}
+          <input
+            className="ainput"
+            placeholder="Name of your business"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          ></input>
+        </label>
+        <label className="atitle">
+          Image Url: {}
+          <input
+            className="ainput"
+            placeholder="Image link of your business"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+          ></input>
+        </label>
+        <label className="atitle">
+          Description: {}
+          <input
+            className="ainput"
+            placeholder="Business description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></input>
+        </label>
+        <label className="atitle">
+          Address: {}
+          <input
+            className="ainput"
+            placeholder="Street number & name"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          ></input>
+        </label>
+        <label className="atitle">
+          City: {}
+          <input
+            className="ainput"
+            placeholder="City"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          ></input>
+        </label>
+        <label className="atitle">
+          State: {}
+          <input
+            className="ainput"
+            placeholder="State"
+            value={state}
+            onChange={(e) => setState(e.target.value)}
+          ></input>
+        </label>
+        <label className="atitle">
+          Zip Code: {}
+          <input
+            className="ainput"
+            placeholder="Zip code"
+            value={zipCode}
+            onChange={(e) => setZipCode(e.target.value)}
+          ></input>
+        </label>
+        <button
+          className="new-create"
+          type="submit"
+          disabled={validationErrors.length > 0}
+        >
+          Add business
+        </button>
+        <button className="new-cancel" type="button" onClick={handleCancel}>
+          Cancel
+        </button>
+      </form>
+    </div>
   );
 };
