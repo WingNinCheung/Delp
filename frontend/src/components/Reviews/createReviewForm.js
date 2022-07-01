@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { addReview, getReviews } from "../../store/review";
 import "./review.css";
 
@@ -8,6 +8,7 @@ const CreateReview = () => {
   const [rating, setRating] = useState(1);
   const [reviewBody, setreviewBody] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // business id
   const { id } = useParams();

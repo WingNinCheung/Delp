@@ -36,6 +36,15 @@ export const getReviews = (businessId) => async (dispatch) => {
   }
 };
 
+export const getAllReviews = () => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/`);
+
+  if (res.ok) {
+    const reviews = await res.json();
+    dispatch(load(reviews));
+  }
+};
+
 export const addReview = (review, businessId) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/${businessId}`, {
     method: "POST",
@@ -70,8 +79,6 @@ const reviewReducer = (state = {}, action) => {
       return newState;
     case ADD_REVIEW:
       if (!state[action.review.id]) {
-        console.log("I'm in here");
-        console.log("action here", action.review);
         newState = { ...state, [action.review.id]: action.review };
         return newState;
       }
@@ -82,7 +89,6 @@ const reviewReducer = (state = {}, action) => {
           ...action.review,
         },
       };
-      console.log("newState is ", newState);
       return newState;
     case DELETE_REVIEW:
       newState = { ...state };

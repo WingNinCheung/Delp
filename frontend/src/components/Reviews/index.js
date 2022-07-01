@@ -14,8 +14,6 @@ const Reviews = () => {
   const reviews = useSelector((state) => Object.values(state.review));
   const loggedUserId = useSelector((state) => state.session.user?.id);
 
-  // console.log(Array.isArray(reviews));
-
   // format the date into Mon Jan 1 2022
   reviews.forEach((review) => {
     let date = new Date(review.createdAt);
@@ -34,7 +32,7 @@ const Reviews = () => {
   return (
     <div className="review-container">
       <div>
-        {reviews.map((review, i) => (
+        {reviews.map((review) => (
           <div key={review.id} className="review">
             <div className="user-name">
               <i className="fas fa-user-alt fa-1x" />

@@ -8,8 +8,6 @@
 }
 
 .fas.fa-user-alt {
-  /* border: 2px solid black; */
-  /* border-radius: 80%; */
   width: 15px;
   height: 30px;
   position: relative;
@@ -27,12 +25,9 @@
   bottom: 698px;
   position: relative;
   left: 4px;
-  /* background-color: red; */
-  /* border: 1px solid red; */
 }
 
 .date {
-  /* background-color: aqua; */
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;

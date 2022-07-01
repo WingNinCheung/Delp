@@ -3,13 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/business";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { getAllReviews } from "../../store/review";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const allBusinesses = useSelector((state) => Object.values(state.business));
+  const allReview = useSelector((state) => Object.values(state.review));
 
+  const findOneReview = (id) => {
+    let arr = [];
+    allReview.forEach((review) => {
+      if (review.businessId === id) {
+        arr.push(review.reviewBody);
+      }
+    });
+    return arr[0];
+  };
   useEffect(() => {
     dispatch(getBusinesses());
+    dispatch(getAllReviews());
   }, [dispatch]);
 
   return (
@@ -43,6 +55,14 @@ export const Home = () => {
                   <i className="fas fa-location-arrow" />
                   {business.address}, {business.city}, {business.state},{" "}
                   {business.zipCode}
+                </div>
+                <div className="review-home">
+                  <i className="far fa-comment" />
+                  {findOneReview(business.id) !== undefined ? (
+                    `"${findOneReview(business.id)}"`
+                  ) : (
+                    <span>No reviews yet</span>
+                  )}
                 </div>
               </div>
             </div>
