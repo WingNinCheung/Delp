@@ -113,7 +113,7 @@ body {
 .footer {
   display: flex;
   justify-content: space-evenly;
-  position: absolute;
+  position: fixed;
   background-color: rgba(21, 15, 15, 0.546);
   bottom: 0;
   width: 99%;

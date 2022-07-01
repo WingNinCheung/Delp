@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
+import { Slash } from "../SlashPage";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -38,65 +39,72 @@ function SignupFormPage() {
   };
 
   return (
-    <div className="signup-container">
-      <div className="signDiv">Sign Up</div>
-      <form className="sign-form" onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li className="listError" key={idx}>
-              {error}
-            </li>
-          ))}
-        </ul>
-        <div className="labelField">
+    <>
+      <div className="signup-container">
+        <div className="signDiv">Sign Up</div>
+        <form className="sign-form" onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => (
+              <li className="listError" key={idx}>
+                {error}
+              </li>
+            ))}
+          </ul>
+          <div className="labelField">
+            <label className="elabel">
+              Email
+              <input
+                className="email-label"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+          </div>
           <label className="elabel">
-            Email
+            Username
             <input
-              className="email-label"
               type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
           </label>
-        </div>
-        <label className="elabel">
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label className="elabel">
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label className="elabel">
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <div className="group-button">
-          <button className="submitSignup" type="submit">
-            Sign Up
-          </button>
-          <button className="cancelSignup" type="submit" onClick={handleCancel}>
-            Cancel
-          </button>
-        </div>
-      </form>
-    </div>
+          <label className="elabel">
+            Password
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label className="elabel">
+            Confirm Password
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </label>
+          <div className="group-button">
+            <button className="submitSignup" type="submit">
+              Sign Up
+            </button>
+            <button
+              className="cancelSignup"
+              type="submit"
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+      <Slash />
+    </>
   );
 }
 
