@@ -14,8 +14,11 @@ export const Home = () => {
 
   return (
     <>
+      <div className="intro">
+        {" "}
+        Best Restaurants in San Francisco Bay Area, CA
+      </div>
       <div className="business-list">
-        <div className="intro"> Restaurants in San Francisco, CA</div>
         {allBusinesses.map((business) => (
           <NavLink
             className="nav-area"

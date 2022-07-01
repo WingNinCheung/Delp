@@ -6,7 +6,6 @@ body {
   display: flex;
   border-bottom: 2px solid rgb(223, 222, 222);
   height: 150px;
-  margin-bottom: 0px;
 }
 
 .profile-button {
@@ -106,25 +105,33 @@ For business list area
 */
 
 .intro {
-  font-size: 24px;
+  font-size: 21px;
   font-family: Helvetica Neue, sans-serif;
-  margin-left: 45px;
-  margin-top: auto;
+  /* margin-left: 45px; */
+  margin-top: 2%;
+  /* margin: 10px; */
+  /* margin-bottom: 30px; */
+  font-weight: bold;
+  /* width: 19%; */
+  text-align: center;
 }
 
 .business-list {
   margin-top: 80px;
   background-color: white;
-  /* border: 2px solid black; */
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .business-card {
-  border: 1px solid gray;
-  border-radius: 10px;
-  width: 800px;
+  border: 2px solid rgb(231, 223, 223);
+  border-radius: 15px;
+  width: 90%;
   margin: 40px;
   display: flex;
-  align-items: center;
+
+  /* margin: 0 auto; */
 }
 
 .word-session {
@@ -135,7 +142,7 @@ For business list area
 }
 
 .nav-area {
-  background-color: black;
+  /* background-color: black; */
   color: black;
   text-decoration: none;
 }
@@ -144,7 +151,6 @@ For business list area
   color: black;
   font-size: 20px;
   font-weight: bold;
-  text-decoration: none;
   position: relative;
   bottom: 90px;
   text-align: center;
@@ -166,7 +172,15 @@ For business list area
   width: auto;
 }
 
+.bus-address {
+  padding: -10px;
+  position: relative;
+  top: -10%;
+  left: 10%;
+}
+
 .food-img {
   height: 300px;
   width: 400px;
+  border-radius: 13px;
 }
