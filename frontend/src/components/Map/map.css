@@ -1,4 +1,7 @@
 .map-container {
-  width: 130%;
-  height: 100%;
+  width: 60%;
+  height: 75%;
+  position: relative;
+  left: 600px;
+  bottom: 280px;
 }

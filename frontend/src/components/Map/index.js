@@ -20,9 +20,11 @@ export const Maps = ({ API_KEYS, businessId }) => {
   );
 };
 
-// const center = { lat: 44, lng: -80 };
-
 function MapCanvas({ center }) {
+  console.log(center.length);
+  if (!center.length) {
+    center = { lat: 37.78532, lng: -122.431389 };
+  }
   return (
     <>
       <GoogleMap

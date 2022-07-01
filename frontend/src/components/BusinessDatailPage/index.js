@@ -28,6 +28,7 @@ export const BusinessDetail = () => {
   };
 
   const handleDelete = (e) => {
+    console.log("HI");
     dispatch(deleteBusiness(id));
     window.location.href = "/home";
   };
@@ -71,7 +72,7 @@ export const BusinessDetail = () => {
               </div>
               <div className="delete">
                 {isAuthorizedOwner ? (
-                  <button className="delete-button" onClick={handleDelete}>
+                  <button className="deleteButton" onClick={handleDelete}>
                     Delete Business
                   </button>
                 ) : null}
@@ -83,16 +84,16 @@ export const BusinessDetail = () => {
               <div className="address">
                 <h3>Address</h3>
                 <i className="fas fa-map-marker-alt" />
-                {thisBusiness.address},{thisBusiness.city},{thisBusiness.state},
-                {thisBusiness.zipCode}
-              </div>
-              <div className="map-container">
-                <Maps
-                  API_KEYS={process.env.REACT_APP_GOOGLE_KEYS}
-                  businessId={id}
-                />
+                {thisBusiness.address}, {thisBusiness.city},{" "}
+                {thisBusiness.state}, {thisBusiness.zipCode}
               </div>
             </div>
+          </div>
+          <div className="map-container">
+            <Maps
+              API_KEYS={process.env.REACT_APP_GOOGLE_KEYS}
+              businessId={id}
+            />
           </div>
           <div className="review">
             <h2 className="recommend">Recommended Reviews</h2>
