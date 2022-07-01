@@ -152,8 +152,7 @@ For business list area
   font-size: 20px;
   font-weight: bold;
   position: relative;
-  bottom: 90px;
-  text-align: center;
+  bottom: 23%;
 }
 
 .bus-des {
@@ -176,12 +175,13 @@ For business list area
   padding: -10px;
   position: relative;
   top: -10%;
-  left: 10%;
+  left: auto;
 }
 
 .food-img {
   height: 300px;
   width: 400px;
+  min-width: 400px;
   border-radius: 13px;
 }
 
