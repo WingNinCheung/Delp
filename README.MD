@@ -10,7 +10,7 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 - <a href="https://github.com/WingNinCheung/Delp/wiki/Dedux-State-Shape"> Redux State Shape
 - <a href="https://github.com/WingNinCheung/Delp/wiki/API-Routes"> API Routes
 
-## Technologies
+# Technologies Used
   
 ## Frontend
   
@@ -30,3 +30,39 @@ Delp is a single page app which publishes restaurants located in San Francisco B
   <a href="https://www.postgresql.org/"><img height="90" src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" alt="PostgreSQL"></a>
 </div>
 
+## APIs & Hosting
+
+<div>
+  <a href="https://developers.google.com/maps"><img height="50" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT85Wwok6vlXcpiENA_EzgXqkm3nHrciXeNkaPuHDN2Mpdm-cX2nMRAbuBijGflcRmRu6A&usqp=CAU"></a>
+  <a href="https://dashboard.heroku.com/apps/"><img height="35" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heroku_logo.svg/2560px-Heroku_logo.svg.png"></a>
+</div>
+
+# Getting Started
+
+1. Clone this repository
+
+	```
+	git clone https://github.com/WingNinCheung/Delp.git
+	```
+2. Install dependencies
+
+	```
+	npm install
+	```
+3. Create an .env file in the root for your development environment
+
+4. Setup a PostgreSQL user and password with the numbers on your .env file
+	
+5. Run, migrate and seed your database	
+
+	```
+	npx dotenv sequelize db:create
+	npx dotenv sequelize db:migrate
+	npx dotenv sequelize db:seed:all
+	```
+6. Run the server. Run the below twice on the fronend and backend directories
+
+	```
+	npm start
+	```
+# Features & Screenshots
