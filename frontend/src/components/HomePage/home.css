@@ -6,7 +6,6 @@ body {
   display: flex;
   border-bottom: 2px solid rgb(223, 222, 222);
   height: 150px;
-  margin-bottom: 0px;
 }
 
 .profile-button {
@@ -106,25 +105,32 @@ For business list area
 */
 
 .intro {
-  font-size: 24px;
+  font-size: 20px;
   font-family: Helvetica Neue, sans-serif;
-  margin-left: 45px;
-  margin-top: auto;
+  /* margin-left: 45px; */
+  /* margin-top: auto; */
+  /* margin: 10px; */
+  /* margin-bottom: 30px; */
+  font-weight: bold;
+  /* width: 19%; */
 }
 
 .business-list {
   margin-top: 80px;
   background-color: white;
-  /* border: 2px solid black; */
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .business-card {
-  border: 1px solid gray;
-  border-radius: 10px;
-  width: 800px;
+  border: 2px solid rgb(231, 223, 223);
+  border-radius: 15px;
+  width: 90%;
   margin: 40px;
   display: flex;
-  align-items: center;
+
+  margin: 0 auto;
 }
 
 .word-session {
@@ -135,7 +141,7 @@ For business list area
 }
 
 .nav-area {
-  background-color: black;
+  /* background-color: black; */
   color: black;
   text-decoration: none;
 }
