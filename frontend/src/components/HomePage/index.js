@@ -8,10 +8,17 @@ import { getAllReviews } from "../../store/review";
 export const Home = () => {
   const dispatch = useDispatch();
   const allBusinesses = useSelector((state) => Object.values(state.business));
-  const loadOneReview = true;
   const allReview = useSelector((state) => Object.values(state.review));
-  // console.log(allReview[0].businessId);
 
+  const findOneReview = (id) => {
+    let arr = [];
+    allReview.forEach((review) => {
+      if (review.businessId === id) {
+        arr.push(review.reviewBody);
+      }
+    });
+    return arr[0];
+  };
   useEffect(() => {
     dispatch(getBusinesses());
     dispatch(getAllReviews());
@@ -50,10 +57,11 @@ export const Home = () => {
                   {business.zipCode}
                 </div>
                 <div className="review-home">
-                  {allReview.map((review) =>
-                    review.businessId === business.id && loadOneReview ? (
-                      <div>"{review.reviewBody}"</div>
-                    ) : null
+                  <i className="far fa-comment" />
+                  {findOneReview(business.id) !== undefined ? (
+                    `"${findOneReview(business.id)}"`
+                  ) : (
+                    <span>No reviews yet</span>
                   )}
                 </div>
               </div>

@@ -184,3 +184,17 @@ For business list area
   width: 400px;
   border-radius: 13px;
 }
+
+.review-home {
+  color: rgba(110, 112, 114, 1);
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.far.fa-comment {
+  color: black;
+  margin-right: 3px;
+  margin-left: 8px;
+}
