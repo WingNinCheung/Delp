@@ -1,7 +1,9 @@
 .map-container {
-  width: 60%;
-  height: 75%;
+  width: 62%;
+  height: 70%;
+  /* background-color: aqua; */
   position: relative;
-  left: 600px;
-  bottom: 280px;
+  left: 37%;
+  bottom: 230px;
+  border-radius: 40px;
 }

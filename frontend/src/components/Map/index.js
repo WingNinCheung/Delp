@@ -6,7 +6,7 @@ import "./map.css";
 export const Maps = ({ API_KEYS, businessId }) => {
   const thisBusiness = useSelector((state) => state.business[businessId]);
 
-  const center = { lat: thisBusiness.lat, lng: thisBusiness.lng };
+  const data = { lat: thisBusiness.lat, lng: thisBusiness.lng };
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: API_KEYS,
@@ -15,24 +15,22 @@ export const Maps = ({ API_KEYS, businessId }) => {
   if (!isLoaded) return <div>Loading...</div>;
   return (
     <div>
-      <MapCanvas center={center} />
+      <MapCanvas data={data} />
     </div>
   );
 };
 
-function MapCanvas({ center }) {
-  console.log(center.length);
-  if (!center.length) {
-    center = { lat: 37.78532, lng: -122.431389 };
+function MapCanvas({ data }) {
+  console.log(data);
+  if (data.lat === null) {
+    data = { lat: 37.78532, lng: -122.431389 };
   }
+
+  console.log(data);
   return (
     <>
-      <GoogleMap
-        zoom={15}
-        center={center}
-        mapContainerClassName="map-container"
-      >
-        <Marker position={center}></Marker>
+      <GoogleMap zoom={14} center={data} mapContainerClassName="map-container">
+        <Marker position={data}></Marker>
       </GoogleMap>
     </>
   );

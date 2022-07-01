@@ -4,7 +4,7 @@
   position: relative;
   padding: 20px;
   margin-bottom: -30px;
-  bottom: 700px;
+  bottom: 670px;
 }
 
 .fas.fa-user-alt {
@@ -24,9 +24,9 @@
 
 .fas.fa-star {
   color: rgb(237, 8, 8);
-  bottom: 700px;
+  bottom: 698px;
   position: relative;
-  left: 2px;
+  left: 4px;
   /* background-color: red; */
   /* border: 1px solid red; */
 }
@@ -38,16 +38,16 @@
   line-height: 20px;
   color: rgb(69, 71, 72);
   font-family: "Open Sans";
-  bottom: 700px;
+  bottom: 695px;
   position: relative;
-  left: 2px;
+  left: 4px;
 }
 
 .reviewbody {
   margin-top: 10px;
   font-family: "Open Sans";
   font-size: 18px;
-  bottom: 700px;
+  bottom: 695px;
   position: relative;
   left: 5px;
 }
@@ -67,8 +67,13 @@
   /* top: 20px; */
   font-size: 12px;
   font-weight: bold;
-  bottom: 700px;
+  bottom: 690px;
   cursor: pointer;
+}
+
+.delete-review-button:hover {
+  background-color: white;
+  color: red;
 }
 
 .create-review-container {
@@ -78,7 +83,10 @@
 
 .review-div {
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 80px;
+  padding-top: 20px;
+  margin-left: 10px;
+  border-top: 1px solid rgb(216, 210, 210);
 }
 
 .review-content {
