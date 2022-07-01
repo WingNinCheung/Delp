@@ -1,10 +1,10 @@
 .user-name {
   display: flex;
   justify-content: flex-start;
-  /* width: 200px; */
-  /* height: 70px; */
+  position: relative;
   padding: 20px;
   margin-bottom: -30px;
+  bottom: 670px;
 }
 
 .fas.fa-user-alt {
@@ -24,6 +24,9 @@
 
 .fas.fa-star {
   color: rgb(237, 8, 8);
+  bottom: 698px;
+  position: relative;
+  left: 4px;
   /* background-color: red; */
   /* border: 1px solid red; */
 }
@@ -35,17 +38,25 @@
   line-height: 20px;
   color: rgb(69, 71, 72);
   font-family: "Open Sans";
+  bottom: 695px;
+  position: relative;
+  left: 4px;
 }
 
 .reviewbody {
   margin-top: 10px;
   font-family: "Open Sans";
   font-size: 18px;
+  bottom: 695px;
+  position: relative;
+  left: 5px;
 }
 
-.review {
+.review-div {
   padding: 5px;
   margin-bottom: 15px;
+  position: relative;
+  bottom: 800px;
 }
 
 .delete-review-button {
@@ -53,9 +64,16 @@
   color: white;
   border-radius: 8px;
   position: relative;
-  top: 20px;
+  /* top: 20px; */
   font-size: 12px;
   font-weight: bold;
+  bottom: 690px;
+  cursor: pointer;
+}
+
+.delete-review-button:hover {
+  background-color: white;
+  color: red;
 }
 
 .create-review-container {
@@ -65,11 +83,17 @@
 
 .review-div {
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 80px;
+  padding-top: 20px;
+  margin-left: 10px;
+  border-top: 1px solid rgb(216, 210, 210);
 }
 
 .review-content {
   margin-top: 10px;
+  position: relative;
+  bottom: 800px;
+  left: 8px;
 }
 
 .review-button {
@@ -79,4 +103,15 @@
   font-size: 14px;
   font-weight: bold;
   margin-top: 10px;
+  position: relative;
+  bottom: 800px;
+  left: 8px;
+  cursor: pointer;
+}
+
+.rating-select,
+.rate-label {
+  position: relative;
+  bottom: 800px;
+  left: 8px;
 }

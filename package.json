@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/WingNinCheung/Delp/issues"
   },
-  "homepage": "https://github.com/WingNinCheung/Delp#readme"
+  "homepage": "https://github.com/WingNinCheung/Delp#readme",
+  "dependencies": {
+    "google-maps-react": "^2.0.6"
+  }
 }
