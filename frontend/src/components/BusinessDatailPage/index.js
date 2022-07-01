@@ -29,7 +29,6 @@ export const BusinessDetail = () => {
   };
 
   const handleDelete = (e) => {
-    console.log("HI");
     dispatch(deleteBusiness(id));
     window.location.href = "/home";
   };

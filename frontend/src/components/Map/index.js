@@ -21,12 +21,10 @@ export const Maps = ({ API_KEYS, businessId }) => {
 };
 
 function MapCanvas({ data }) {
-  console.log(data);
   if (data.lat === null) {
     data = { lat: 37.78532, lng: -122.431389 };
   }
 
-  console.log(data);
   return (
     <>
       <GoogleMap zoom={14} center={data} mapContainerClassName="map-container">

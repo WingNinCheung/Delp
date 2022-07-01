@@ -79,8 +79,6 @@ const reviewReducer = (state = {}, action) => {
       return newState;
     case ADD_REVIEW:
       if (!state[action.review.id]) {
-        console.log("I'm in here");
-        console.log("action here", action.review);
         newState = { ...state, [action.review.id]: action.review };
         return newState;
       }
@@ -91,7 +89,6 @@ const reviewReducer = (state = {}, action) => {
           ...action.review,
         },
       };
-      console.log("newState is ", newState);
       return newState;
     case DELETE_REVIEW:
       newState = { ...state };
