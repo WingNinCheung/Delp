@@ -1,28 +1,54 @@
 .login-container {
   /* background-color: red; */
-  height: 100%;
-  width: 100%;
+
+  position: relative;
+  bottom: 250px;
+}
+
+.nav {
+  background: linear-gradient(
+    360deg,
+    rgba(58, 46, 46, 0.334) 59%,
+    rgba(17, 16, 16, 0.314) 88%,
+    rgba(12, 12, 12, 0.303)
+  );
+  height: 10%;
+  position: relative;
+  top: -10px;
+}
+.each {
+  margin-bottom: 20px;
+}
+
+.loglabel {
+  font-size: 20px;
+}
+
+.input-area {
+  text-align: center;
+  margin: 20px;
 }
 
 .login-form {
-  background-color: white;
-  height: 300px;
-  width: 400px;
+  height: 320px;
+  width: 450px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  position: absolute;
-  bottom: -10px;
-  right: -200px;
-  background-color: rgb(0, 0, 0);
+  /* background-color: black; */
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-weight: bold;
+  font-size: 45px;
 }
 
-.div-login {
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-}
 .error {
-  color: white;
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+div#modal-content {
+  background-color: black;
+  height: 15%;
 }
