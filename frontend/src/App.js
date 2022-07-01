@@ -29,12 +29,12 @@ function App() {
           <Route path="/demo">
             <DemoSignPage />
           </Route>
+          <Route exact path="/">
+            <Slash />
+          </Route>
         </Switch>
       )}
       <Switch>
-        <Route exact path="/">
-          <Slash />
-        </Route>
         <Route exact path="/home">
           <Home />
         </Route>
