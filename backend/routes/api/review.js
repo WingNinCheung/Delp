@@ -17,6 +17,16 @@ router.get(
   })
 );
 
+router.get(
+  "/",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+
+    const reviews = await Review.findAll();
+    return res.json(reviews);
+  })
+);
+
 router.post(
   "/:id",
   asyncHandler(async (req, res) => {

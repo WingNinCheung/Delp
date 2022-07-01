@@ -3,13 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/business";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { getAllReviews } from "../../store/review";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const allBusinesses = useSelector((state) => Object.values(state.business));
+  const loadOneReview = true;
+  const allReview = useSelector((state) => Object.values(state.review));
+  // console.log(allReview[0].businessId);
 
   useEffect(() => {
     dispatch(getBusinesses());
+    dispatch(getAllReviews());
   }, [dispatch]);
 
   return (
@@ -43,6 +48,13 @@ export const Home = () => {
                   <i className="fas fa-location-arrow" />
                   {business.address}, {business.city}, {business.state},{" "}
                   {business.zipCode}
+                </div>
+                <div className="review-home">
+                  {allReview.map((review) =>
+                    review.businessId === business.id && loadOneReview ? (
+                      <div>"{review.reviewBody}"</div>
+                    ) : null
+                  )}
                 </div>
               </div>
             </div>
