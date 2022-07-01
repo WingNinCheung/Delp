@@ -1,38 +1,43 @@
+* {
+  font-family: "Helvetica" Neue, sans-serif;
+}
 .signup-container {
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   position: relative;
-  height: 100%;
-  width: 100%;
-  text-align: left;
 }
 
+.listError {
+  font-weight: bold;
+  color: white;
+  padding: 6px;
+}
 .sign-form {
   background-color: transparent;
   display: flex;
   flex-direction: column;
   color: white;
-  /* justify-content: center; */
   align-items: center;
-  /* position: relative; */
   top: -30px;
   left: 40%;
   width: 20%;
   border: 4px solid white;
   border-radius: 10px;
   box-shadow: 0px 1px 1px gray;
-  font-family: Helvetica Neue, sans-serif;
 }
 
 .elabel {
-  text-align: left;
   margin: 10px;
-  font-family: Helvetica Neue, sans-serif;
-  margin-right: 30px;
+  text-align: left;
   color: white;
+  font-weight: bold;
+}
+.labelField {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-right: 40px;
 }
 
 .submitSignup {
@@ -40,11 +45,40 @@
   padding: 10px;
   font-family: Helvetica Neue, sans-serif;
   cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  color: black;
+  background-color: white;
 }
 
 .signDiv {
   font-family: Helvetica Neue, sans-serif;
   color: white;
-  font-size: 40px;
+  font-size: 45px;
   margin: 20px;
+  font-weight: bold;
+}
+
+.cancelSignup {
+  height: 35px;
+  padding: 10px;
+  font-family: Helvetica Neue, sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  color: black;
+  background-color: white;
+}
+
+.group-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submitSignup:hover,
+.cancelSignup:hover {
+  background-color: red;
 }

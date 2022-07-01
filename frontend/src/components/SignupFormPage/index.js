@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
 
@@ -12,6 +12,7 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
   if (sessionUser) return <Redirect to="/home" />;
 
@@ -31,25 +32,34 @@ function SignupFormPage() {
     ]);
   };
 
+  const handleCancel = (e) => {
+    e.preventDefault();
+    history.push("/");
+  };
+
   return (
     <div className="signup-container">
       <div className="signDiv">Sign Up</div>
       <form className="sign-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="listError" key={idx}>
+              {error}
+            </li>
           ))}
         </ul>
-        <label className="elabel">
-          Email
-          <input
-            className="email-label"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
+        <div className="labelField">
+          <label className="elabel">
+            Email
+            <input
+              className="email-label"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+        </div>
         <label className="elabel">
           Username
           <input
@@ -77,9 +87,14 @@ function SignupFormPage() {
             required
           />
         </label>
-        <button className="submitSignup" type="submit">
-          Sign Up
-        </button>
+        <div className="group-button">
+          <button className="submitSignup" type="submit">
+            Sign Up
+          </button>
+          <button className="cancelSignup" type="submit" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
