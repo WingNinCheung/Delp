@@ -34,7 +34,7 @@ const Reviews = () => {
   return (
     <div className="review-container">
       <div>
-        {reviews.map((review, i) => (
+        {reviews.map((review) => (
           <div key={review.id} className="review">
             <div className="user-name">
               <i className="fas fa-user-alt fa-1x" />

@@ -22,7 +22,6 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = <ProfileButton user={sessionUser} />;
-    history.push("/home");
   } else {
     sessionLinks = (
       <>
