@@ -16,24 +16,30 @@ export const BusinessDetail = () => {
 
   const loggedUserId = useSelector((state) => state.session.user?.id);
 
-  const thisBusiness = useSelector((state) => state.business[id]);
+  const thisBusiness = useSelector((state) => state?.business[id]);
+  const isAuthorizedOwner = loggedUserId === thisBusiness?.ownerId;
 
   useEffect(() => {
     dispatch(getBusinesses());
   }, [loggedUserId, dispatch]);
 
-  const isAuthorizedOwner = loggedUserId === thisBusiness?.ownerId;
-
   const handleEdit = (e) => {
+    e.preventDefault();
     history.push(`/business/${thisBusiness.id}/edit`);
   };
 
   const handleDelete = async (e) => {
-    let res = await dispatch(getBusinesses());
-    res = await dispatch(deleteBusiness(id));
+    e.preventDefault();
+    // let res = await dispatch(getBusinesses());
 
-    console.log(res);
-    if (!res) history.push("/home");
+    let res = dispatch(deleteBusiness(id));
+    if (res) {
+      dispatch(getBusinesses());
+    }
+
+    if (res) {
+      history.push("/home");
+    }
   };
 
   if (loggedUserId && thisBusiness) {

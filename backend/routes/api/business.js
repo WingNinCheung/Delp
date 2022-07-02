@@ -70,9 +70,9 @@ router.delete(
     const id = req.params.id;
     const business = await Business.findByPk(id);
 
-    const reviews = await Review.findAll({
-      where: { businessId: business.id },
-    });
+    // const reviews = await Review.findAll({
+    //   where: { businessId: business.id },
+    // });
 
     await Review.destroy({
       where: { businessId: business.id },
