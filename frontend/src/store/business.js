@@ -25,6 +25,7 @@ const deleteOneBusiness = (businessId) => {
     businessId,
   };
 };
+
 // Thunk
 export const getBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/business");
@@ -73,6 +74,19 @@ export const deleteBusiness = (id) => async (dispatch) => {
     const businessId = await res.json();
     dispatch(deleteOneBusiness(businessId));
     return businessId;
+  }
+};
+
+export const convertToGeoCode = (address, city) => async (dispatch) => {
+  const KEYS = process.env.REACT_APP_POSITIONSTACK_KEYS;
+
+  const res = await fetch(
+    `http://api.positionstack.com/v1/forward?access_key=/${KEYS}&query=${address} ${city}`
+  );
+
+  if (res.ok) {
+    const geoCodes = await res.json();
+    return geoCodes;
   }
 };
 

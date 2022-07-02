@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./addForm.css";
 
-export const AddBusiness = () => {
+export const AddBusiness = ({ KEY }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,13 +20,37 @@ export const AddBusiness = () => {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
+  let lat;
+  let lng;
+
+  async function convertToGeoCode(address, city) {
+    const KEYS = process.env.REACT_APP_POSITIONSTACK_KEYS;
+    const res = await fetch(
+      `http://api.positionstack.com/v1/forward?access_key=${KEYS}&query=${address} ${city}`
+    );
+
+    if (res.ok) {
+      const geoCodes = await res.json();
+      return geoCodes;
+    }
+  }
 
   const handleCancel = (e) => {
     e.preventDefault();
     history.push("/home");
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // convert address to Geocodes
+    const data = await convertToGeoCode(address, city);
+
+    if (data) {
+      const { latitude, longitude } = data.data[0];
+      lat = latitude;
+      lng = longitude;
+    }
 
     const payload = {
       ownerId: id,
@@ -37,7 +61,14 @@ export const AddBusiness = () => {
       city,
       state,
       zipCode,
+      lat,
+      lng,
     };
+
+    // dispatch convertToGeoCode
+    // get the result and check
+    // if good, pack it to the payload object and dispatch addBusiness
+
     const createdBusiness = await dispatch(addBusiness(payload));
 
     if (createdBusiness) {
