@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/business";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { getAllReviews } from "../../store/review";
 
 export const Home = () => {
   const dispatch = useDispatch();
   const allBusinesses = useSelector((state) => Object.values(state?.business));
-  const allReview = useSelector((state) => Object.values(state?.review));
+  const allReview = useSelector((state) => Object.values(state.review));
 
   const findOneReview = (id) => {
     let arr = [];
@@ -22,10 +23,11 @@ export const Home = () => {
   useEffect(() => {
     let time = setTimeout(() => {
       dispatch(getBusinesses());
-    }, 500);
+    }, 300);
+
+    dispatch(getAllReviews());
 
     return () => clearTimeout(time);
-    // dispatch(getBusinesses());
   }, [dispatch]);
 
   return (
