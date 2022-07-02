@@ -30,7 +30,7 @@ export const BusinessDetail = () => {
 
   const handleDelete = (e) => {
     dispatch(deleteBusiness(id));
-    window.location.href = "/home";
+    history.push("/home");
   };
 
   if (loggedUserId && thisBusiness) {

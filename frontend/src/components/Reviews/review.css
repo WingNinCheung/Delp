@@ -5,6 +5,7 @@
   padding: 20px;
   margin-bottom: -30px;
   bottom: 670px;
+  width: 50%;
 }
 
 .fas.fa-user-alt {
@@ -59,7 +60,6 @@
   color: white;
   border-radius: 8px;
   position: relative;
-  /* top: 20px; */
   font-size: 12px;
   font-weight: bold;
   bottom: 690px;

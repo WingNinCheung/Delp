@@ -10,6 +10,7 @@ const Reviews = () => {
   // business id
   const { id } = useParams();
   const dispatch = useDispatch();
+  // const [reviewContent, setReviewContent] = useState("");
 
   const reviews = useSelector((state) => Object.values(state.review));
   const loggedUserId = useSelector((state) => state.session.user?.id);
