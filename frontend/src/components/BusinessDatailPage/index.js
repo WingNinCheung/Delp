@@ -28,9 +28,12 @@ export const BusinessDetail = () => {
     history.push(`/business/${thisBusiness.id}/edit`);
   };
 
-  const handleDelete = (e) => {
-    dispatch(deleteBusiness(id));
-    history.push("/home");
+  const handleDelete = async (e) => {
+    let res = await dispatch(getBusinesses());
+    res = await dispatch(deleteBusiness(id));
+
+    console.log(res);
+    if (!res) history.push("/home");
   };
 
   if (loggedUserId && thisBusiness) {
