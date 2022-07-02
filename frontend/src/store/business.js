@@ -65,13 +65,14 @@ export const updateBusiness = (data, id) => async (dispatch) => {
 };
 
 export const deleteBusiness = (id) => async (dispatch) => {
-  const res = csrfFetch(`/api/business/${id}`, {
+  const res = await csrfFetch(`/api/business/${id}`, {
     method: "DELETE",
   });
 
   if (res.ok) {
     const businessId = await res.json();
     dispatch(deleteOneBusiness(businessId));
+    return businessId;
   }
 };
 

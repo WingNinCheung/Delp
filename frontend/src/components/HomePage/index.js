@@ -7,7 +7,7 @@ import { getAllReviews } from "../../store/review";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const allBusinesses = useSelector((state) => Object.values(state.business));
+  const allBusinesses = useSelector((state) => Object.values(state?.business));
   const allReview = useSelector((state) => Object.values(state.review));
 
   const findOneReview = (id) => {
@@ -19,9 +19,15 @@ export const Home = () => {
     });
     return arr[0];
   };
+
   useEffect(() => {
-    dispatch(getBusinesses());
+    let time = setTimeout(() => {
+      dispatch(getBusinesses());
+    }, 300);
+
     dispatch(getAllReviews());
+
+    return () => clearTimeout(time);
   }, [dispatch]);
 
   return (

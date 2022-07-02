@@ -55,6 +55,7 @@ export const addReview = (review, businessId) => async (dispatch) => {
   if (res.ok) {
     const data = await res.json();
     dispatch(addOneReview(data));
+    return data; // optional
   }
 };
 
