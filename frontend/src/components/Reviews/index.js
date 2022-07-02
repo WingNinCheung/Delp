@@ -32,7 +32,7 @@ const Reviews = () => {
 
   return (
     <div className="review-container">
-      <div>
+      <div className="border">
         {reviews.map((review) => (
           <div key={review.id} className="review">
             <div className="user-name">

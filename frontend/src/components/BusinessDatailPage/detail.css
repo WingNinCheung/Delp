@@ -72,15 +72,16 @@
 
 .recommend {
   margin-left: 10px;
-  position: relative;
   bottom: 650px;
   border-bottom: 1px solid rgb(209, 203, 203);
   padding-bottom: 20px;
 }
 
 .review {
-  position: relative;
-  top: 30px;
+  position: sticky;
+  bottom: 600px;
+  margin-bottom: 30px;
+  width: 90%;
 }
 .edit-button {
   background-color: red;
@@ -106,6 +107,8 @@
 
 .detail-container {
   overflow: hidden;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .deleteButton:hover,
@@ -129,4 +132,9 @@
     display: flex;
     position: fixed;
   }
+}
+
+.review:hover {
+  border: 3px solid rgb(226, 216, 216);
+  border-radius: 20px;
 }

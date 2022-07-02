@@ -1,31 +1,30 @@
 .user-name {
-  display: flex;
-  justify-content: flex-start;
   position: relative;
-  padding: 20px;
-  margin-bottom: -30px;
-  bottom: 670px;
   width: 50%;
-}
-
-.fas.fa-user-alt {
-  width: 15px;
-  height: 30px;
-  position: relative;
-  right: 15px;
+  left: 1%;
+  margin-top: 30px;
 }
 
 .name {
   position: relative;
-  bottom: 20px;
-  right: 18px;
+  left: 3%;
+  bottom: 36px;
+}
+
+.fas.fa-user-alt {
+  position: relative;
+  left: 4px;
+}
+
+.form-error {
+  color: red;
 }
 
 .fas.fa-star {
   color: rgb(237, 8, 8);
-  bottom: 698px;
+  bottom: 40px;
   position: relative;
-  left: 4px;
+  left: 25px;
 }
 
 .date {
@@ -34,25 +33,24 @@
   line-height: 20px;
   color: rgb(69, 71, 72);
   font-family: "Open Sans";
-  bottom: 695px;
+  bottom: 40px;
   position: relative;
-  left: 4px;
+  left: 25px;
 }
 
 .reviewbody {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   font-family: "Open Sans";
   font-size: 18px;
-  bottom: 695px;
+  bottom: 40px;
   position: relative;
-  left: 5px;
+  margin-top: 10px;
+  left: 25px;
 }
 
 .review-div {
   padding: 5px;
   margin-bottom: 15px;
-  position: relative;
-  bottom: 800px;
 }
 
 .delete-review-button {
@@ -62,7 +60,8 @@
   position: relative;
   font-size: 12px;
   font-weight: bold;
-  bottom: 690px;
+  bottom: 40px;
+  left: 25px;
   cursor: pointer;
 }
 
@@ -73,21 +72,13 @@
 
 .create-review-container {
   border-top: 1px solid rgb(235, 230, 230);
-  margin-top: 70px;
-}
-
-.review-div {
-  margin-left: 20px;
-  margin-top: 80px;
-  padding-top: 20px;
-  margin-left: 10px;
-  border-top: 1px solid rgb(216, 210, 210);
+  /* margin-top: 70px; */
 }
 
 .review-content {
   margin-top: 10px;
   position: relative;
-  bottom: 800px;
+  /* bottom: 800px; */
   left: 8px;
 }
 
@@ -99,14 +90,20 @@
   font-weight: bold;
   margin-top: 10px;
   position: relative;
-  bottom: 800px;
   left: 8px;
   cursor: pointer;
+}
+
+.review-button:disabled,
+.review-button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .rating-select,
 .rate-label {
   position: relative;
-  bottom: 800px;
+
   left: 8px;
 }
