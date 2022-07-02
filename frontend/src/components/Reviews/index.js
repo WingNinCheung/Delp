@@ -10,6 +10,7 @@ const Reviews = () => {
   // business id
   const { id } = useParams();
   const dispatch = useDispatch();
+  // const [reviewContent, setReviewContent] = useState("");
 
   const reviews = useSelector((state) => Object.values(state.review));
   const loggedUserId = useSelector((state) => state.session.user?.id);
@@ -31,9 +32,9 @@ const Reviews = () => {
 
   return (
     <div className="review-container">
-      <div>
+      <div className="border">
         {reviews.map((review) => (
-          <div key={review.id} className="review">
+          <div key={review.id} className="session-review">
             <div className="user-name">
               <i className="fas fa-user-alt fa-1x" />
               <h3 className="name">{review.User?.username}</h3>

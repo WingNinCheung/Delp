@@ -16,21 +16,30 @@ export const BusinessDetail = () => {
 
   const loggedUserId = useSelector((state) => state.session.user?.id);
 
-  const thisBusiness = useSelector((state) => state.business[id]);
+  const thisBusiness = useSelector((state) => state?.business[id]);
+  const isAuthorizedOwner = loggedUserId === thisBusiness?.ownerId;
 
   useEffect(() => {
     dispatch(getBusinesses());
   }, [loggedUserId, dispatch]);
 
-  const isAuthorizedOwner = loggedUserId === thisBusiness?.ownerId;
-
   const handleEdit = (e) => {
+    e.preventDefault();
     history.push(`/business/${thisBusiness.id}/edit`);
   };
 
-  const handleDelete = (e) => {
-    dispatch(deleteBusiness(id));
-    window.location.href = "/home";
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    // let res = await dispatch(getBusinesses());
+
+    let res = dispatch(deleteBusiness(id));
+    if (res) {
+      dispatch(getBusinesses());
+    }
+
+    if (res) {
+      history.push("/home");
+    }
   };
 
   if (loggedUserId && thisBusiness) {

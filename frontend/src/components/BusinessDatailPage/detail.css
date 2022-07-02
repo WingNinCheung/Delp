@@ -72,15 +72,16 @@
 
 .recommend {
   margin-left: 10px;
-  position: relative;
   bottom: 650px;
   border-bottom: 1px solid rgb(209, 203, 203);
   padding-bottom: 20px;
 }
 
 .review {
-  position: relative;
-  top: 30px;
+  position: sticky;
+  bottom: 600px;
+  margin-bottom: 30px;
+  width: auto;
 }
 .edit-button {
   background-color: red;
@@ -129,4 +130,10 @@
     display: flex;
     position: fixed;
   }
+}
+
+.session-review:hover {
+  border: 1px solid rgb(9, 8, 8);
+  box-shadow: 10px 1px 10px black;
+  border-radius: 20px;
 }
