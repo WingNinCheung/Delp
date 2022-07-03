@@ -2,9 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBusiness } from "../../store/business";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { convertToGeoCode } from "../Map";
 import "./addForm.css";
 
 export const AddBusiness = ({ KEY }) => {
+  let lat;
+  let lng;
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,20 +23,6 @@ export const AddBusiness = ({ KEY }) => {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
-  let lat;
-  let lng;
-
-  async function convertToGeoCode(address, city) {
-    const KEYS = process.env.REACT_APP_POSITIONSTACK_KEYS;
-    const res = await fetch(
-      `http://api.positionstack.com/v1/forward?access_key=${KEYS}&query=${address} ${city}`
-    );
-
-    if (res.ok) {
-      const geoCodes = await res.json();
-      return geoCodes;
-    }
-  }
 
   const handleCancel = (e) => {
     e.preventDefault();

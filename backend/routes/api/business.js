@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-// const { handleValidationErrors } = require("../../utils/validation");
-// const { check } = require("express-validator");
 
 const { Business, User, Review } = require("../../db/models");
 
@@ -43,6 +41,8 @@ router.put(
       city,
       state,
       zipCode,
+      lat,
+      lng,
     } = req.body;
 
     await Business.update(
@@ -55,6 +55,8 @@ router.put(
         city,
         state,
         zipCode,
+        lat,
+        lng,
       },
       {
         where: { id },

@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { updateBusiness } from "../../store/business";
 import { getBusinesses } from "../../store/business";
+import { convertToGeoCode } from "../Map";
 import "./edit.css";
 
 export const EditBusiness = () => {
+  let lat;
+  let lng;
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -29,6 +32,14 @@ export const EditBusiness = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const data = await convertToGeoCode(address, city);
+
+    if (data) {
+      const { latitude, longitude } = data.data[0];
+      lat = latitude;
+      lng = longitude;
+    }
+
     const payload = {
       ...thisBusiness,
       ownerId: thisBusiness.ownerId,
@@ -39,6 +50,8 @@ export const EditBusiness = () => {
       city,
       state,
       zipCode,
+      lat,
+      lng,
     };
 
     const createdBusiness = dispatch(updateBusiness(payload, id));

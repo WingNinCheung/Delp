@@ -77,19 +77,6 @@ export const deleteBusiness = (id) => async (dispatch) => {
   }
 };
 
-export const convertToGeoCode = (address, city) => async (dispatch) => {
-  const KEYS = process.env.REACT_APP_POSITIONSTACK_KEYS;
-
-  const res = await fetch(
-    `http://api.positionstack.com/v1/forward?access_key=/${KEYS}&query=${address} ${city}`
-  );
-
-  if (res.ok) {
-    const geoCodes = await res.json();
-    return geoCodes;
-  }
-};
-
 // Reducer
 const businessReducer = (state = {}, action) => {
   let newState = {};
