@@ -37,7 +37,7 @@ function MapCanvas({ data }) {
 export const convertToGeoCode = async (address, city) => {
   const KEYS = process.env.REACT_APP_POSITIONSTACK_KEYS;
   const res = await fetch(
-    `http://api.positionstack.com/v1/forward?access_key=${KEYS}&query=${address} ${city}`
+    `https://api.positionstack.com/v1/forward?access_key=${KEYS}&query=${address} ${city}`
   );
 
   if (res.ok) {
