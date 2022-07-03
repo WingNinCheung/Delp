@@ -2,9 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addBusiness } from "../../store/business";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { convertToGeoCode } from "../Map";
 import "./addForm.css";
 
-export const AddBusiness = () => {
+export const AddBusiness = ({ KEY }) => {
+  let lat;
+  let lng;
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -25,8 +28,18 @@ export const AddBusiness = () => {
     e.preventDefault();
     history.push("/home");
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // convert address to Geocodes
+    const data = await convertToGeoCode(address, city);
+
+    if (data) {
+      const { latitude, longitude } = data.data[0];
+      lat = latitude;
+      lng = longitude;
+    }
 
     const payload = {
       ownerId: id,
@@ -37,7 +50,14 @@ export const AddBusiness = () => {
       city,
       state,
       zipCode,
+      lat,
+      lng,
     };
+
+    // dispatch convertToGeoCode
+    // get the result and check
+    // if good, pack it to the payload object and dispatch addBusiness
+
     const createdBusiness = await dispatch(addBusiness(payload));
 
     if (createdBusiness) {
