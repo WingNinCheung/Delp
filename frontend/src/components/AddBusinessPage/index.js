@@ -54,10 +54,6 @@ export const AddBusiness = ({ KEY }) => {
       lng,
     };
 
-    // dispatch convertToGeoCode
-    // get the result and check
-    // if good, pack it to the payload object and dispatch addBusiness
-
     const createdBusiness = await dispatch(addBusiness(payload));
 
     if (createdBusiness) {
