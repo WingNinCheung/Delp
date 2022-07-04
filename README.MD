@@ -62,7 +62,150 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 	```
 6. Run the server. Run the below twice on the fronend and backend directories
 
+
 	```
 	npm start
 	```
 # Features & Screenshots
+
+## Landing Page
+
+- Users must log in to access the website
+
+<img width="960" alt="Screen Shot 2022-07-04 at 2 31 05 PM" src="https://user-images.githubusercontent.com/96600317/177218299-cbba746f-c4b7-406f-8579-adf4d09b5617.png">
+
+## User Authentication
+
+- Users can log in with his/her existing account. Alternatively, all users can log in with the Demo Login feature.
+
+<img width="1870" alt="Screen Shot 2022-07-04 at 2 36 09 PM" src="https://user-images.githubusercontent.com/96600317/177218474-80019e52-9a1a-4871-9ccc-f0d7670122fe.png">
+
+- Users can sign up. The user name must be unique and the password and confirm password have to be exactly the same in order to sign up successfully.
+
+<img width="960" alt="Screen Shot 2022-07-04 at 2 38 41 PM" src="https://user-images.githubusercontent.com/96600317/177218633-77f64f55-d8fc-4181-9b54-cc973aa96dfc.png">
+
+## Home Page
+
+- Logged in users will see additional links on the navigation bar: Home, Add My Business. Users can click the profile icon on the top right corner. Users can see their user names, emails and log out button. When users click the log out button, the users will then get logged out and redirected to the ladning page.
+
+<img width="1848" alt="Screen Shot 2022-07-04 at 2 41 33 PM" src="https://user-images.githubusercontent.com/96600317/177218791-117a599c-740f-4173-ad25-cbd961acf639.png">
+
+## Business Details
+
+- When a user clicks on a business in the home page, the user will be redirected to the business detail page.
+- The page contains a default cover image, a food photo from the business,the information of the business including address, description and a google map of the business's acuual location, the review section.
+<img width="1900" alt="Screen Shot 2022-07-04 at 2 47 19 PM" src="https://user-images.githubusercontent.com/96600317/177219151-b88e1707-088f-4ffd-8f5f-f66d0e501ddd.png">
+
+### Add a Business
+
+- A user can add a business to the list by clicking Add My Business in the navigation bar.
+- After filing all requried informations, a user can click Add business to add it to the list. The user will then get redirected to the business page of the newly created business. The business will get added to the bottom of the list.
+
+<img width="1807" alt="Screen Shot 2022-07-04 at 2 53 31 PM" src="https://user-images.githubusercontent.com/96600317/177219569-490e3313-fb91-4de9-917f-819c6cb19c34.png">
+
+<img width="1870" alt="Screen Shot 2022-07-04 at 2 59 49 PM" src="https://user-images.githubusercontent.com/96600317/177220472-e172c175-054a-4cfd-aa37-e3db771ab109.png">
+
+- A user can edit or delete the business from the list. Note that only the user who created the business have the authorization to edit/delete it.
+- To edit it, a user can simply click Edit Info and click Save after.
+- To delete it ,a user can simply click Delete Business and it will redirect the user to the home page. The business will get automatically removed from the list and database.
+
+<img width="1735" alt="Screen Shot 2022-07-04 at 3 01 44 PM" src="https://user-images.githubusercontent.com/96600317/177220581-52cf6231-6a44-4f9b-a932-b25df2689355.png">
+
+
+## Review Section
+
+- A user can see all of the reviews/comments.
+- When hovering over a review, a shadow will appear to let the user know which review is the point of focus.
+
+<img width="1907" alt="Screen Shot 2022-07-04 at 3 07 13 PM" src="https://user-images.githubusercontent.com/96600317/177220858-97f1cefa-a69e-4b6c-b27b-8d46e0a773cb.png">
+
+- A user can write a review at the bottom of the page.
+
+<img width="1565" alt="Screen Shot 2022-07-04 at 3 08 37 PM" src="https://user-images.githubusercontent.com/96600317/177220916-1384eefd-562f-406e-afd3-b6272ece7f90.png">
+
+- When a user finishs their reviews, the user can simply click Post Review and the review will get added to the page and the user will not get redirected.
+
+<img width="1350" alt="Screen Shot 2022-07-04 at 3 11 22 PM" src="https://user-images.githubusercontent.com/96600317/177221086-526c5bbd-b057-4e1c-a714-c08874ed2e7a.png">
+
+- A user can also delete the reviews that he/she writes by clicking the delete button under its review.
+
+## To-dos/future features
+
+- Filters - Allow users to filter search results by specifications.
+- likes feature - Allow users to like the business and display the likes count in the home page
+- Search
+- Tags
+
+## Technical Challenges 
+
+### Redux Store Hydration
+
+**Problem** : One of the biggest challenges is that when a user deletes the business that he/she creates, the business will still show on the list(home page) unless I refresh the page.
+
+**My observation** : 
+
+- I spent a great amount of time to debug and I observed that the business was deleted on the database successfully, therefore the code/setup for the API routing in the backend and fetching were correct and bugs free.
+
+```
+// backend - API route
+router.delete(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    const business = await Business.findByPk(id);
+    
+    await Review.destroy({
+      where: { businessId: business.id },
+    });
+
+    await Business.destroy({
+      where: { id: business.id },
+    });
+    return res.json(id);
+  })
+);
+```
+
+```
+// fontend - Redux store & action function
+
+const deleteOneBusiness = (businessId) => {
+  return {
+    type: DELETE_BUSINESS,
+    businessId,
+  };
+};
+
+export const deleteBusiness = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/business/${id}`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const businessId = await res.json();
+    dispatch(deleteOneBusiness(businessId));
+    return businessId;
+  }
+};
+
+```
+
+- After ensuring the API route and fetching were setup correctly, I focused on the Redux store/state and found that there was a race condition happening between the deletion on the Redux store and redirecting to the home page which displayed all businesses contained in the store. 
+
+- In other words, the page redirection command was hit faster than the API fetching. As a result, when the user clicks the Delete Business button, the user will get redirected to the home page which contains a list of businesses, but the business that the user wants to delete is still on the page **because the Redux store has not yet been updated.**
+
+**My Solution**
+
+- I used a setTimeout function with a timer of 0.3 seconds which ensures that the store will get updated before the dispatch. As a result, when the user gets redirected to the home page, the useEffect() will trigger and will dispatch the getBusinesses() action after 0.3 seconds. The business will then removed from the page,database and Redux store.
+
+```
+useEffect(() => {
+    let time = setTimeout(() => {
+      dispatch(getBusinesses());
+    }, 300);
+
+    dispatch(getAllReviews());
+
+    return () => clearTimeout(time);
+  }, [dispatch]);
+```
