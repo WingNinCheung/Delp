@@ -86,7 +86,7 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 
 ## Home Page
 
-- Logged in users will see additional links on the navigation bar: Home, Add My Business. Users can click the profile icon on the top right corner. Users can see their user names, emails and log out button. When users click the log out button, the users will then get logged out and redirected to the ladning page.
+- A logged user will see additional links on the navigation bar: Home, Add My Business. A user can click the profile icon on the top right corner. A user can see his/her user name, email and log out button. When the user click the log out button, he/she will then get logged out and redirected to the landing page.
 
 <img width="1848" alt="Screen Shot 2022-07-04 at 2 41 33 PM" src="https://user-images.githubusercontent.com/96600317/177218791-117a599c-740f-4173-ad25-cbd961acf639.png">
 
