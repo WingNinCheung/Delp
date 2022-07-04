@@ -93,7 +93,7 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 ## Business Details
 
 - When a user clicks on a business in the home page, the user will be redirected to the business detail page.
-- The page contains a default cover image, a food photo from the business,the information of the business including address, description and a google map of the business's acuual location, the review section.
+- The page contains a default cover image, a food photo from the business,the information of the business including address, description, a google map of the business's acuual location and the review section.
 <img width="1900" alt="Screen Shot 2022-07-04 at 2 47 19 PM" src="https://user-images.githubusercontent.com/96600317/177219151-b88e1707-088f-4ffd-8f5f-f66d0e501ddd.png">
 
 ### Add a Business
