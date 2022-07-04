@@ -76,7 +76,7 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 
 ## User Authentication
 
-- Users can log in with his/her existing account. Alternatively, all users can log in with the Demo Login feature.
+- Users can log in with their existing account. Alternatively, all users can log in with the Demo Login feature.
 
 <img width="1870" alt="Screen Shot 2022-07-04 at 2 36 09 PM" src="https://user-images.githubusercontent.com/96600317/177218474-80019e52-9a1a-4871-9ccc-f0d7670122fe.png">
 
