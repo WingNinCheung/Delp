@@ -99,7 +99,7 @@ Delp is a single page app which publishes restaurants located in San Francisco B
 ### Add a Business
 
 - A user can add a business to the list by clicking Add My Business in the navigation bar.
-- After filing all requried informations, a user can click Add business to add it to the list. The user will then get redirected to the business page of the newly created business. The business will get added to the bottom of the list.
+- After filing all requried informations, a user can click Add business to add it to the list. The user will get redirected to the detail page of this newly created business. The business will get added to the bottom of the list in the home page.
 
 <img width="1807" alt="Screen Shot 2022-07-04 at 2 53 31 PM" src="https://user-images.githubusercontent.com/96600317/177219569-490e3313-fb91-4de9-917f-819c6cb19c34.png">
 
