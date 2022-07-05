@@ -138,7 +138,7 @@ Delp, a full stack application, is a single page app which publishes restaurants
 
 ## Technical Challenges 
 
-### Redux Store Hydration
+### Redux Store Hydration/Race Condition
 
 **Problem** : One of the biggest challenges is that when a user deletes the business that he/she creates, the business will still show on the list(home page) unless I refresh the page.
 
