@@ -32,7 +32,7 @@ const Reviews = () => {
 
   return (
     <div className="review-container">
-      <div className="border">
+      <div className="upper-review">
         {!reviews.length && (
           <h3 style={{ marginLeft: "2%" }}>No Reviews yet</h3>
         )}

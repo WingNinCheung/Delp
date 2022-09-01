@@ -27,6 +27,15 @@
   left: 25px;
 }
 
+.review-container,
+.review {
+  display: flex;
+  flex-direction: column;
+}
+
+.upper-review {
+}
+
 .date {
   font-size: 14px;
   font-weight: 400;
@@ -39,7 +48,6 @@
 }
 
 .reviewbody {
-  /* margin-top: 10px; */
   font-family: "Open Sans";
   font-size: 18px;
   bottom: 40px;
@@ -72,13 +80,12 @@
 
 .create-review-container {
   border-top: 1px solid rgb(235, 230, 230);
-  /* margin-top: 70px; */
 }
 
 .review-content {
   margin-top: 10px;
   position: relative;
-  /* bottom: 800px; */
+
   left: 8px;
 }
 
