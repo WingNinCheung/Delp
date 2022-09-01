@@ -106,3 +106,29 @@
   position: relative;
   left: 8px;
 }
+
+/* Edit Review */
+
+#edit-form,
+#edit-error,
+.edit-container {
+  background-color: white;
+}
+
+div#modal-content {
+  background-color: white;
+}
+
+#edit-content {
+  width: 800px;
+  margin-left: -1%;
+}
+
+.edit-container {
+  width: 100%;
+}
+
+#edit-btn {
+  height: 20px;
+  margin-right: 1%;
+}

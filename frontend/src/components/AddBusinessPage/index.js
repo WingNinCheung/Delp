@@ -34,7 +34,6 @@ export const AddBusiness = ({ KEY }) => {
 
     // convert address to Geocodes
     const data = await convertToGeoCode(address, city);
-    console.log("data are ", data);
 
     if (data) {
       const { latitude, longitude } = data.data[0];

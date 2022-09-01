@@ -30,7 +30,6 @@ export const BusinessDetail = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    // let res = await dispatch(getBusinesses());
 
     let res = dispatch(deleteBusiness(id));
     if (res) {

@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD_REVIEW = "review/LOAD_REVIEW";
 const ADD_REVIEW = "review/ADD_REVIEW";
 const DELETE_REVIEW = "business/DELETE_REVIEW";
+const EDIT_REVIEW = "business/EDIT_REVIEW";
 
 // actions
 const load = (reviews) => {
@@ -23,6 +24,13 @@ const deleteOneReview = (reviewId) => {
   return {
     type: DELETE_REVIEW,
     reviewId,
+  };
+};
+
+const editOneReview = (review) => {
+  return {
+    type: EDIT_REVIEW,
+    review,
   };
 };
 
@@ -59,6 +67,20 @@ export const addReview = (review, businessId) => async (dispatch) => {
   }
 };
 
+export const editReview = (review, reviewId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+
+    dispatch(addOneReview(data));
+  }
+};
+
 export const deleteReview = (reviewId) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/${reviewId}`, {
     method: "DELETE",
@@ -85,9 +107,9 @@ const reviewReducer = (state = {}, action) => {
       }
       newState = {
         ...state,
-        [action.review.id]: {
-          ...state[action.review.id],
-          ...action.review,
+        [action.review[0].id]: {
+          ...state[action.review[0].id],
+          ...action.review[0],
         },
       };
       return newState;
