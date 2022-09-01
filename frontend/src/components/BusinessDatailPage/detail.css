@@ -115,8 +115,8 @@
   color: red;
 }
 
-@media screen and (max-width: 800px) {
-  #root,
+@media screen and (max-width: 1800px) {
+  /* #root,
   .image {
     display: flex;
     flex-direction: column;
@@ -129,6 +129,18 @@
     text-align: right;
     display: flex;
     position: fixed;
+  } */
+
+  .photo-container {
+    /* width: 20%; */
+  }
+  .image {
+    width: 400px;
+    margin-bottom: 15%;
+  }
+
+  .info-detail {
+    margin-top: 10%;
   }
 }
 
