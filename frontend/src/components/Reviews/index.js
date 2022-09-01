@@ -3,14 +3,14 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import CreateReview from "./createReviewForm";
-import { deleteReview } from "../../store/review";
+import { editReview, deleteReview } from "../../store/review";
+import EditReviewModal from "./editReviewModal";
 import "./review.css";
 
 const Reviews = () => {
   // business id
   const { id } = useParams();
   const dispatch = useDispatch();
-  // const [reviewContent, setReviewContent] = useState("");
 
   const reviews = useSelector((state) => Object.values(state.review));
   const loggedUserId = useSelector((state) => state.session.user?.id);
@@ -33,6 +33,9 @@ const Reviews = () => {
   return (
     <div className="review-container">
       <div className="border">
+        {!reviews.length && (
+          <h3 style={{ marginLeft: "2%" }}>No Reviews yet</h3>
+        )}
         {reviews.map((review) => (
           <div key={review.id} className="session-review">
             <div className="user-name">
@@ -77,18 +80,26 @@ const Reviews = () => {
               {review?.reviewBody}
             </div>
             {loggedUserId === review.userId ? (
-              <button
-                className="delete-review-button"
-                onClick={() => handleDelete(review.id)}
-              >
-                Delete
-              </button>
+              <span>
+                <EditReviewModal
+                  reviewId={review.id}
+                  businessId={review.businessId}
+                />
+
+                <button
+                  className="delete-review-button"
+                  onClick={() => handleDelete(review.id)}
+                >
+                  Delete
+                </button>
+              </span>
             ) : null}
           </div>
         ))}
       </div>
+
       <div className="create-review-container">
-        <h2 className="review-div">Write a review!</h2>
+        <h2 className="review-div">Write a review !</h2>
         <CreateReview />
       </div>
     </div>

@@ -46,6 +46,35 @@ router.post(
   })
 );
 
+router.put(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const id = req.params.id;
+
+    const newReview = req.body;
+    const { userId, businessId, rating, reviewBody } = newReview;
+
+    // console.log("*****", userId, businessId, rating, reviewBody);
+
+    const data = await Review.update(
+      {
+        userId,
+        businessId,
+        rating,
+        reviewBody,
+      },
+      {
+        where: { id },
+      }
+    );
+
+    const review = await Review.findAll({
+      where: { id },
+    });
+    return res.json(id);
+  })
+);
+
 router.delete(
   "/:id",
   asyncHandler(async (req, res) => {

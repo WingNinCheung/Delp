@@ -115,20 +115,14 @@
   color: red;
 }
 
-@media screen and (max-width: 800px) {
-  #root,
+@media screen and (max-width: 1800px) {
   .image {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: auto;
-    position: fixed;
+    width: 400px;
+    margin-bottom: 15%;
   }
-  .inner,
+
   .info-detail {
-    text-align: right;
-    display: flex;
-    position: fixed;
+    margin-top: 10%;
   }
 }
 
