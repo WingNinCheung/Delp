@@ -116,24 +116,6 @@
 }
 
 @media screen and (max-width: 1800px) {
-  /* #root,
-  .image {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: auto;
-    position: fixed;
-  }
-  .inner,
-  .info-detail {
-    text-align: right;
-    display: flex;
-    position: fixed;
-  } */
-
-  .photo-container {
-    /* width: 20%; */
-  }
   .image {
     width: 400px;
     margin-bottom: 15%;

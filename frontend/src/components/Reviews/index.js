@@ -33,6 +33,9 @@ const Reviews = () => {
   return (
     <div className="review-container">
       <div className="border">
+        {!reviews.length && (
+          <h3 style={{ marginLeft: "2%" }}>No Reviews yet</h3>
+        )}
         {reviews.map((review) => (
           <div key={review.id} className="session-review">
             <div className="user-name">
@@ -94,6 +97,7 @@ const Reviews = () => {
           </div>
         ))}
       </div>
+
       <div className="create-review-container">
         <h2 className="review-div">Write a review !</h2>
         <CreateReview />
