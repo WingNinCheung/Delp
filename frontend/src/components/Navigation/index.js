@@ -53,11 +53,6 @@ function Navigation({ isLoaded }) {
       <div className="master-nav">
         {sessionUser ? (
           <div className="home-nav">
-            <div className="hometag">
-              <NavLink className="home" exact to="/home">
-                Home
-              </NavLink>
-            </div>
             <img
               className="home-icon"
               alt="logo"
@@ -68,6 +63,11 @@ function Navigation({ isLoaded }) {
               src="https://cdn-icons-png.flaticon.com/512/174/174882.png"
               alt="Delp Icon"
             ></img>
+            <div className="hometag">
+              <NavLink className="home" exact to="/home">
+                Home
+              </NavLink>
+            </div>
             <div className="add-business">
               <button
                 className="add-button"
@@ -76,6 +76,16 @@ function Navigation({ isLoaded }) {
                 Add My Business
               </button>
             </div>
+            <span className="search-nav">
+              <input
+                type="text"
+                className="search-text"
+                placeholder="Search by restaurant's name"
+              ></input>
+              <button className="magnifying-glass">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </span>
           </div>
         ) : null}
       </div>
