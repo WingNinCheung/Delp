@@ -54,8 +54,6 @@ router.put(
     const newReview = req.body;
     const { userId, businessId, rating, reviewBody } = newReview;
 
-    // console.log("*****", userId, businessId, rating, reviewBody);
-
     const data = await Review.update(
       {
         userId,
