@@ -8,6 +8,13 @@ body {
   height: 150px;
 }
 
+.home-nav {
+  display: grid;
+  grid-template-columns: 2fr 1fr 3fr 10fr;
+  width: 100%;
+  margin-top: 3%;
+}
+
 .profile-button {
   height: auto;
   position: absolute;
@@ -16,9 +23,44 @@ body {
   border: none;
   background-color: white;
   cursor: pointer;
-  /* overflow: hidden; */
 }
 
+.search-text {
+  width: 60%;
+  height: 39%;
+  font-size: 16px;
+}
+
+.search-nav {
+  margin-top: -0.5%;
+}
+
+.search-title {
+  margin-top: -5%;
+  margin-left: -25%;
+}
+#search-list {
+  margin-top: -1%;
+}
+
+.search-result {
+  margin-left: 3%;
+}
+.magnifying-glass {
+  height: 40%;
+  width: 4%;
+  background-color: red;
+  position: relative;
+  top: 2%;
+  border: none;
+  cursor: pointer;
+}
+
+.fa-magnifying-glass {
+  color: white;
+  font-size: 21px;
+  font-weight: bold;
+}
 .all-list {
   color: black;
   height: auto;
@@ -46,27 +88,20 @@ body {
 }
 
 .home-icon {
-  height: 50px;
-  width: 60px;
-  /* margin-right: 20px; */
-  position: relative;
-  top: 60px;
-  left: 50px;
+  height: 40px;
+  width: 50px;
+  margin-left: 40px;
 }
 
 .yelp-icon {
-  height: 50px;
-  position: relative;
-  top: 60px;
-  left: 60px;
+  height: 40px;
+  /* position: relative; */
+  left: -80%;
 }
 
 .hometag {
   width: auto;
   color: black;
-  position: absolute;
-  left: 15%;
-  top: 8%;
   text-decoration: none;
   font-size: 20px;
 }
@@ -74,9 +109,6 @@ body {
 .add-business {
   width: auto;
   color: black;
-  position: absolute;
-  left: 30%;
-  top: 8%;
   font-size: 20px;
 }
 
@@ -107,12 +139,8 @@ For business list area
 .intro {
   font-size: 21px;
   font-family: Helvetica Neue, sans-serif;
-  /* margin-left: 45px; */
   margin-top: 2%;
-  /* margin: 10px; */
-  /* margin-bottom: 30px; */
   font-weight: bold;
-  /* width: 19%; */
   text-align: center;
 }
 
@@ -130,8 +158,6 @@ For business list area
   width: 90%;
   margin: 40px;
   display: flex;
-
-  /* margin: 0 auto; */
 }
 
 .word-session {
