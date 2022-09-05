@@ -76,19 +76,18 @@ body {
 }
 
 .home-icon {
-  height: 50px;
-  width: 60px;
-  /* margin-right: 20px; */
+  height: 40px;
+  width: 50px;
+  margin-left: 40px;
   /* position: relative;
   top: 60px;
   left: 50px; */
 }
 
 .yelp-icon {
-  height: 50px;
-  /* position: relative;
-  top: 60px;
-  left: 60px; */
+  height: 40px;
+  position: relative;
+  left: -80%;
 }
 
 .hometag {
