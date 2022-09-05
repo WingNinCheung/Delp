@@ -42,6 +42,7 @@ body {
   position: relative;
   top: 2%;
   border: none;
+  cursor: pointer;
 }
 
 .fa-magnifying-glass {
@@ -79,9 +80,6 @@ body {
   height: 40px;
   width: 50px;
   margin-left: 40px;
-  /* position: relative;
-  top: 60px;
-  left: 50px; */
 }
 
 .yelp-icon {
@@ -93,9 +91,6 @@ body {
 .hometag {
   width: auto;
   color: black;
-  /* position: absolute;
-  left: 15%;
-  top: 8%; */
   text-decoration: none;
   font-size: 20px;
 }
@@ -103,9 +98,6 @@ body {
 .add-business {
   width: auto;
   color: black;
-  /* position: absolute;
-  left: 30%;
-  top: 8%; */
   font-size: 20px;
 }
 
@@ -136,12 +128,8 @@ For business list area
 .intro {
   font-size: 21px;
   font-family: Helvetica Neue, sans-serif;
-  /* margin-left: 45px; */
   margin-top: 2%;
-  /* margin: 10px; */
-  /* margin-bottom: 30px; */
   font-weight: bold;
-  /* width: 19%; */
   text-align: center;
 }
 
@@ -159,8 +147,6 @@ For business list area
   width: 90%;
   margin: 40px;
   display: flex;
-
-  /* margin: 0 auto; */
 }
 
 .word-session {

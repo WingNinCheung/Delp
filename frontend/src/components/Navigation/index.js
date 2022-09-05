@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
@@ -10,6 +10,8 @@ function Navigation({ isLoaded }) {
 
   const history = useHistory();
 
+  const [searchText, setSearchText] = useState("");
+
   const handleSignup = (e) => {
     e.preventDefault();
     history.push("/signup");
@@ -18,6 +20,20 @@ function Navigation({ isLoaded }) {
   const handleDemo = (e) => {
     e.preventDefault();
     history.push("/demo");
+  };
+
+  const search = (e) => {
+    e.preventDefault();
+    if (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(searchText)) {
+      window.alert("Special characters '!@#$%^&*()<>/;'[]' are not allowed");
+      setSearchText("");
+    } else if (searchText.trim() === "") {
+      window.alert("Content can't be empty or all spaces");
+      setSearchText("");
+    } else {
+      setSearchText("");
+      history.push(`/search/${searchText}`);
+    }
   };
   let sessionLinks;
   if (sessionUser) {
@@ -81,8 +97,10 @@ function Navigation({ isLoaded }) {
                 type="text"
                 className="search-text"
                 placeholder="Search by restaurant's name"
+                onChange={(e) => setSearchText(e.target.value)}
+                value={searchText}
               ></input>
-              <button className="magnifying-glass">
+              <button className="magnifying-glass" onClick={search}>
                 <i class="fa-solid fa-magnifying-glass"></i>
               </button>
             </span>
