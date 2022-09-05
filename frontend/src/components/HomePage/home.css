@@ -35,6 +35,18 @@ body {
 .search-nav {
   margin-top: -0.5%;
 }
+
+.search-title {
+  margin-top: -5%;
+  margin-left: -25%;
+}
+#search-list {
+  margin-top: -1%;
+}
+
+.search-result {
+  margin-left: 3%;
+}
 .magnifying-glass {
   height: 40%;
   width: 4%;
